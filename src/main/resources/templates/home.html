@@ -18,7 +18,7 @@
             <div class="home-date" id="current-date"> </div>
             <div class="home-inputBox content-center-row">
                 <div class="input-group">
-                    <input type="text" class="form-control" placeholder="입력해 주세요!">
+                    <input type="text" class="form-control" id="add-todo-input" placeholder="입력해 주세요!">
                 </div>
                 <button type="button" class="btn home-inputButton purple-button-sm  content-center-col">+</button>
             </div>
@@ -32,7 +32,12 @@
                     <div class="progress-bar home-progress-bar-detail" >25%</div>
                 </div>
             </div>
-            <div class="home-dropdown btn-group">
+            <div th:if="${user == null}" class="home-dropdown btn-group">
+                <button type="button" class="btn btn-danger h-50" id="delete-item-button">
+                    전체 삭제
+                </button>
+            </div>
+            <div th:if="${user != null}" class="home-dropdown btn-group">
                 <button class="btn btn-secondary dropdown-toggle h-50" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                     정렬 기준
                 </button>
@@ -45,16 +50,16 @@
             </div>
         </div>
         <div class="home-todo-list-container">
-           <div class="home-todo-item">
+           <div th:each="item : ${todoList}" class="home-todo-item">
                <div class="home-checkbox form-check">
-                   <input class="form-check-input home-checkbox" type="checkbox" id="flexCheckChecked" checked>
-                   <input class="form-control home-todo-item-title" type="text" id="editableText" value="여기">
+                   <input class="form-check-input home-checkbox" type="checkbox" th:id="${item.id}" th:checked="${item.completed}">
+                   <input class="form-control home-todo-item-title" type="text" th:id="${item.id}" th:value="${item.content}">
                </div>
                <div class="home-icon-container">
-                   <button type="button" class="home-icon">
+                   <button type="button" class="home-icon" th:id="favorite-icon_${item.id}">
                        <img th:src="@{/svg/star.svg}"/>
                    </button>
-                   <button type="button" class="home-icon">
+                   <button type="button" class="home-icon" th:id="delete-icon_${item.id}">
                        <img th:src="@{/svg/trash3.svg}"/>
                    </button>
                </div>
@@ -62,7 +67,41 @@
         </div>
     </div>
 </body>
-    <script th:src="@{/js/jquery-3.7.1.min.js}"></script>
+    <script th:src="@{/js/common/jquery-3.7.1.min.js}"></script>
     <script th:src="@{/js/common/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/js/common/getCurrentDate.js}"></script>
+    <script th:src="@{/js/getCurrentDate.js}"></script>
+    <script th:src="@{/js/todoList/getTodoList.js}"></script>
+    <script th:src="@{/js/todoList/addTodoItem.js}"></script>
+    <script th:src="@{/js/todoList/renderTodoList.js}"></script>
+    <script th:src="@{/js/todoList/removeTodoItem.js}"></script>
+    <script th:src="@{/js/todoList/removeTodoList.js}"></script>
+
+    <script th:inline="javascript">
+        let user = [[${user}]];
+
+        // 페이지 첫 렌더링 + 새로고침
+        window.onload = function () {
+            getCurrentDate();
+            if (!user) {
+                renderTodoList();
+            }
+        };
+
+        // 이벤트 감지
+        document.querySelector('#add-todo-input').addEventListener('keypress', function (e){
+            if (e.key === 'Enter') {
+                addTodoItem();
+            }
+        });
+
+        document.querySelector('.home-inputButton').addEventListener('click', function() {
+            addTodoItem();
+        });
+
+        document.querySelector('#delete-item-button').addEventListener('click', function() {
+           removeTodoList();
+        });
+
+    </script>
+
 </html>
