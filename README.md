@@ -15,8 +15,6 @@
 
 2024.03 ~ 개발 중
 
-<br />
-
 ## 3. 개발 환경
 
 **[develop]** \
@@ -33,7 +31,7 @@ DB 설계 : ERDCloud
 
 ### 4-1. 디자인
 
--> [🎨 Visit Figma Design](https://www.figma.com/file/bSmQKmCxq6BoPg1evYlNtp/Tell-me-to-do?type=design&node-id=0-1&mode=design&t=e2aWO3ddeYylvPW0-0)
+: [🎨 Visit Figma Design](https://www.figma.com/file/bSmQKmCxq6BoPg1evYlNtp/Tell-me-to-do?type=design&node-id=0-1&mode=design&t=e2aWO3ddeYylvPW0-0)
 
 <p align="center" width="100%">
     <img width="912" alt="Screenshot 2024-03-15 at 5 22 27 PM" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7648c277-a035-4aaf-8869-3dced89e3d0c">
@@ -42,7 +40,7 @@ DB 설계 : ERDCloud
 
 ### 4-2. DB
 
--> [📦 Visit Database](https://www.erdcloud.com/d/Bzk9rHYdfNwSpsCTM)
+: [📦 Visit Database](https://www.erdcloud.com/d/Bzk9rHYdfNwSpsCTM)
 
 <p align="center" width="100%">
  <img width="1127" alt="Screenshot 2024-03-15 at 5 24 31 PM" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/5f6c62b8-f775-4ba9-810a-d447b1c7da70">
