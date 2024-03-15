@@ -20,14 +20,14 @@
 ## 3. 개발 환경
 
 **[develop]** \
-**back-end** : Java(jdk-21), Junit5, SpringBoot 3.2.3, Spring Security, Thymeleaf \
+**back-end** : Java(jdk-21), SpringBoot 3.2.3, Spring Security, Junit5, Thymeleaf \
 **database** : JPA, queryDSL, PostgreSQL \
 **front-end** : JavaScript, Bootstrap
 
 **[tool & design]** \
-개발 도구 : IntelliJ IDEA \
-디자인 : Figma \
-DB 설계 : ERDCloud
+**개발 도구** : IntelliJ IDEA \
+**디자인** : Figma \
+**DB 설계** : ERDCloud
 
 ## 4. 설계
 
@@ -35,18 +35,16 @@ DB 설계 : ERDCloud
 
 [🎨 Visit Figma](https://www.figma.com/file/bSmQKmCxq6BoPg1evYlNtp/Tell-me-to-do?type=design&node-id=0-1&mode=design&t=e2aWO3ddeYylvPW0-0)
 
-<p align="center" width="100%">
-    <img width="912" alt="Screenshot 2024-03-15 at 5 22 27 PM" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7648c277-a035-4aaf-8869-3dced89e3d0c">
-</p>
+<img width="912" alt="figma image" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7648c277-a035-4aaf-8869-3dced89e3d0c">
+
 <br />
 
 ### 4-2. DB
 
 [📦 Visit ERDCloud](https://www.erdcloud.com/d/Bzk9rHYdfNwSpsCTM)
 
-<p align="center" width="100%">
- <img width="1127" alt="Screenshot 2024-03-15 at 5 24 31 PM" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/5f6c62b8-f775-4ba9-810a-d447b1c7da70">
-</p>
+ <img width="1127" alt="db image" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/5f6c62b8-f775-4ba9-810a-d447b1c7da70">
+
 <br />
 ** 구현에 따라 업데이트가 지속적으로 이루어질 예정입니다.
 
@@ -77,7 +75,7 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
 
 > REST API 설계 기본 원칙에 따라 설계하였습니다.
 
-<img width="844" alt="Screenshot 2024-03-15 at 5 35 16 PM" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/838de64e-e72b-4d61-b4fa-c1a4cff58de3">
+<img width="844" alt="api" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/838de64e-e72b-4d61-b4fa-c1a4cff58de3">
 
 ## 5. 구현
 
