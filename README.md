@@ -8,8 +8,9 @@
 단순히 나의 to do list를 작성하는 것이 아니라 다른 유저와의 to do 공유를 위해 로그인 기능이 필요한데 이 떄 **Spring Security**를 사용하여 사용자 인증을 구현하였습니다. 또한 객체 지향적인 설계를 위해 **JPA**를 선택하여 데이터베이스와의 상호작용을 구현하였으며 동적 쿼리를 편리하게 작성하고 가독성을 높이기 위해 **queryDSL**도 활용하였습니다.
 
 <p align="center" width="100%">
-	<img width="1693" alt="Screenshot 2024-03-15 at 5 08 32 PM" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/8c55e860-4a11-4831-a04e-e18951f2af45">
+	<img width="1000" alt="Screenshot 2024-03-15 at 5 08 32 PM" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/8c55e860-4a11-4831-a04e-e18951f2af45">
 </p>
+
 ## 2. 개발 기간
 
 2024.03 ~ 개발 중
@@ -18,12 +19,12 @@
 
 ## 3. 개발 환경
 
-**[Develop]** \
+**[develop]** \
 back-end : Java(jdk-21), Junit5, SpringBoot 3.2.3, Spring Security, Thymeleaf \
 database : JPA, queryDSL, PostgreSQL \
 front-end : JavaScript, Bootstrap
 
-**[Tool & Design]** \
+**[tool & design]** \
 개발 도구 : IntelliJ IDEA \
 디자인 : Figma \
 DB 설계 : ERDCloud
