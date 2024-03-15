@@ -69,13 +69,11 @@
 </body>
     <script th:src="@{/js/common/jquery-3.7.1.min.js}"></script>
     <script th:src="@{/js/common/bootstrap.bundle.min.js}"></script>
-    <script th:src="@{/js/getCurrentDate.js}"></script>
-    <script th:src="@{/js/todoList/getTodoList.js}"></script>
-    <script th:src="@{/js/todoList/addTodoItem.js}"></script>
-    <script th:src="@{/js/todoList/renderTodoList.js}"></script>
-    <script th:src="@{/js/todoList/removeTodoItem.js}"></script>
-    <script th:src="@{/js/todoList/removeTodoList.js}"></script>
-
+    <script th:src="@{/js/util/getCurrentDate.js}"></script>
+    <script th:src="@{/js/todo/getTodoList.js}"></script>
+    <script th:src="@{/js/todo/addTodoItem.js}"></script>
+    <script th:src="@{/js/todo/renderTodoList.js}"></script>
+    <script th:src="@{/js/todo/removeTodo.js}"></script>
     <script th:inline="javascript">
         let user = [[${user}]];
 
