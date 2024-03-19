@@ -14,7 +14,7 @@ function renderTodoList() {
         checkboxDiv.classList.add('home-checkbox', 'form-check');
 
         let checkboxInput = document.createElement('input');
-        checkboxInput.classList.add('form-check-input', 'home-checkbox');
+        checkboxInput.classList.add('form-check-input', 'home-checkbox', 'checkbox-icon');
         checkboxInput.type = 'checkbox';
         checkboxInput.id = "input_" + item.id;
         checkboxInput.checked = item.completed;
@@ -69,6 +69,7 @@ function renderTodoList() {
         deleteButton.addEventListener('click', function() {
             this.closest('.home-todo-item').remove();
             removeTodoItem(item.id);
+            getProgressPercentage();
         });
 
 
@@ -96,6 +97,7 @@ function renderTodoList() {
                 return todo;
             });
             localStorage.setItem('local-todoList', JSON.stringify(updatedTodoList));
+            getProgressPercentage();
         })
 
         textInput.addEventListener('input', function() {
@@ -107,6 +109,12 @@ function renderTodoList() {
                 return todo;
             });
             localStorage.setItem('local-todoList', JSON.stringify(updatedTodoList));
+            getProgressPercentage();
         });
+
+        todoItemDiv.addEventListener('change', function() {
+            getProgressPercentage();
+        })
+
     });
 }
