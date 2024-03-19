@@ -28,8 +28,8 @@
         <div class="home-todo-header-container">
             <div class="home-progress-container">
                 <div class="fs-3">달성률 </div>
-                <div class="progress home-progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar home-progress-bar-detail" >25%</div>
+                <div class="progress home-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar home-progress-bar-detail" ></div>
                 </div>
             </div>
             <div th:if="${user == null}" class="home-dropdown btn-group">
@@ -52,7 +52,7 @@
         <div class="home-todo-list-container">
            <div th:each="item : ${todoList}" class="home-todo-item">
                <div class="home-checkbox form-check">
-                   <input class="form-check-input home-checkbox" type="checkbox" th:id="${item.id}" th:checked="${item.completed}">
+                   <input class="form-check-input checkbox-icon" type="checkbox" th:id="${item.id}" th:checked="${item.completed}">
                    <input class="form-control home-todo-item-title" type="text" th:id="${item.id}" th:value="${item.content}">
                </div>
                <div class="home-icon-container">
@@ -70,6 +70,7 @@
     <script th:src="@{/js/common/jquery-3.7.1.min.js}"></script>
     <script th:src="@{/js/common/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/js/util/getCurrentDate.js}"></script>
+    <script th:src="@{/js/util/getProgressPercentage.js}"></script>
     <script th:src="@{/js/todo/getTodoList.js}"></script>
     <script th:src="@{/js/todo/addTodoItem.js}"></script>
     <script th:src="@{/js/todo/renderTodoList.js}"></script>
@@ -82,24 +83,30 @@
             getCurrentDate();
             if (!user) {
                 renderTodoList();
+                addEventListeners();
             }
+            getProgressPercentage();
         };
 
-        // 이벤트 감지
-        document.querySelector('#add-todo-input').addEventListener('keypress', function (e){
-            if (e.key === 'Enter') {
+        // 이벤트 감지 함수
+        function addEventListeners() {
+
+            function addTodoAndUpdateProgress() {
                 addTodoItem();
+                getProgressPercentage();
             }
-        });
+            document.querySelector('#add-todo-input').addEventListener('keypress', e => {
+                if (e.key === 'Enter') {
+                    addTodoAndUpdateProgress();
+                }
+            });
 
-        document.querySelector('.home-inputButton').addEventListener('click', function() {
-            addTodoItem();
-        });
+            document.querySelector('.home-inputButton').addEventListener('click', addTodoAndUpdateProgress);
 
-        document.querySelector('#delete-item-button').addEventListener('click', function() {
-           removeTodoList();
-        });
-
+            document.querySelector('#delete-item-button').addEventListener('click', () => {
+                removeTodoList();
+                getProgressPercentage();
+            }
     </script>
 
 </html>
