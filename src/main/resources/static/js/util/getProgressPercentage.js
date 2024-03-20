@@ -1,5 +1,4 @@
 function getProgressPercentage() {
-    console.log('여기 들어옴');
     let checkedCount = 0;
 
     document.querySelectorAll('.home-checkbox .checkbox-icon').forEach(function (checkBox) {
@@ -20,7 +19,7 @@ function getProgressPercentage() {
     }
 
     // 달성률 업데이트
-    document.querySelector('.home-progress-bar-detail').innerText = progressPercentage.toFixed(2) + '%';
+    document.querySelector('.home-progress-bar-detail').innerText = progressPercentage.toFixed(0) + '%';
     document.querySelector('.home-progress-bar-detail').setAttribute('aria-valuenow', progressPercentage);
     document.querySelector('.home-progress-bar-detail').style.width = progressPercentage + '%';
 }
