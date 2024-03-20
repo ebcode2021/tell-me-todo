@@ -34,8 +34,17 @@ html, body {
     justify-content: center;
 }
 
+
+
 .purple-button-sm {
     background-color: white;
     color: indigo;
     border : 2px solid #7749f8;
 }
+
+/*.purple-button-sm:hover,*/
+/*.purple-button-sm.clicked {*/
+/*    background-color: white;*/
+/*    color: indigo;*/
+/*    border: 2px solid #7749f8;*/
+/*}*/
