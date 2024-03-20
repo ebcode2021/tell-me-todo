@@ -46,7 +46,7 @@
  <img width="1127" alt="db image" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/5f6c62b8-f775-4ba9-810a-d447b1c7da70">
 
 <br />
-** 구현에 따라 업데이트가 지속적으로 이루어질 예정입니다.
+** 구현에 따라 지속적으로 변경이 일어나고 있습니다. 최근 ERD는 링크에서 확인 가능합니다.
 
 <br />
 
@@ -79,7 +79,7 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
 
 ## 5. 구현
 
-> Last Updated : 2024.03.15
+> Last Updated : 2024.03.20
 
 ### 5-1. 구현 포인트(구현 요구사항)
 
@@ -102,5 +102,7 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
     -> localStorage를 사용해서 브라우저 창이 닫히거나 새로고침이 이루어져도 데이터 유지 \
     -> to do item CRUD 가능
 -   **(진행중)** guest 로그인 기능으로 to do 관련 API 구현 \
-    -> guest 로그인 버튼 만들기 \
-    -> 기존 로그인 디자인 대로 모달 형태 vs 새로운 페이지 구현 고민중
+    -> login 모달 생성
+    -> User Entity 생성, 서버 부팅시 guest 로그인
+    -> (진행중) guest login시 데이터 잘 들어오는가 -> join 구현 + 테스트코드 작성
+    -> (예정) guest login시 오늘 날짜의 todo의 items 받아올 수 있게 매핑 -> 렌더링 
