@@ -10,7 +10,7 @@
 <body>
     <div class="home-container content-center-col">
         <div class="home-button-container">
-            <button type="button" class="btn purple-button-sm">LOGIN</button>
+            <button type="button" class="btn purple-button-sm" data-bs-toggle="modal" data-bs-target="#loginModal">LOGIN</button>
             <button type="button" class="btn purple-button-sm ms-2">JOIN</button>
         </div>
         <div class="home-box content-center-col">
@@ -66,7 +66,39 @@
            </div>
         </div>
     </div>
+
+    <!-- Login Modal -->
+    <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">로그인</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form th:action="@{/users/login}" method="post">
+                <div class="modal-body">
+                    <div class="login-form-box content-center-row">
+                        <div>
+                            아이디
+                        </div>
+                        <input type="text" name="username" class="form-control login-modal-input">
+                    </div>
+                    <div class="login-form-box mt-4 content-center-row">
+                        <div>
+                            비밀번호
+                        </div>
+                        <input type="password" name="password" class="form-control login-modal-input">
+                    </div>
+              </div>
+                <div class="modal-footer">
+                        <button type="submit" class="btn purple-button-sm login-modal-btn">게스트 로그인</button>
+                </div>
+                    </form>
+            </div>
+        </div>
+    </div>
 </body>
+
     <script th:src="@{/js/common/jquery-3.7.1.min.js}"></script>
     <script th:src="@{/js/common/bootstrap.bundle.min.js}"></script>
     <script th:src="@{/js/util/getCurrentDate.js}"></script>
@@ -84,11 +116,11 @@
             if (!user) {
                 renderTodoList();
                 addEventListeners();
+                getProgressPercentage();
             }
-            getProgressPercentage();
         };
 
-        // 이벤트 감지 함수
+        // 비로그인 유저의 이벤트 감지 함수
         function addEventListeners() {
 
             function addTodoAndUpdateProgress() {
@@ -106,7 +138,8 @@
             document.querySelector('#delete-item-button').addEventListener('click', () => {
                 removeTodoList();
                 getProgressPercentage();
-            }
+            });
+        }
     </script>
 
 </html>
