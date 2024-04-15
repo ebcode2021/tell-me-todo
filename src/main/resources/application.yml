@@ -1,9 +1,12 @@
 spring:
   datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/tellmetodo
-    username: postgres
-    password: postgres
+#    driver-class-name: org.postgresql.Driver
+#    url: jdbc:postgresql://localhost:5432/tellmetodo
+#    password: postgres
+    driver-class-name: cubrid.jdbc.driver.CUBRIDDriver
+    url: "jdbc:cubrid:localhost:33000:demodb:::"
+    username: public
+    password:
 
   devtools:
     livereload:
@@ -17,8 +20,11 @@ spring:
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
-      hibernate.format_sql: true
-    show-sql: true
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.CUBRIDDialect
+        use_sql_comments: true
+        show_sql: true
     defer-datasource-initialization: true
   sql:
     init:

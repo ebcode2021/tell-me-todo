@@ -19,6 +19,9 @@ configurations {
 
 repositories {
 	mavenCentral()
+	maven {
+		url 'https://maven.cubrid.org'
+	}
 }
 
 dependencies {
@@ -27,11 +30,20 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
 	compileOnly 'org.projectlombok:lombok'
-	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
+
+	// postgrdSQL
+	runtimeOnly 'org.postgresql:postgresql'
+
+	// cubrid
+	implementation 'cubrid:cubrid-jdbc:11.1.1.0028'
+	implementation 'org.springframework.book:spring-boot-starter-jdbc'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
+
 	/* devtools */
 	implementation 'org.springframework.boot:spring-boot-devtools'
 }
