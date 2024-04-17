@@ -2,10 +2,8 @@ package site.tellmetodo.todoapp.domain.user.entity;
 
 import lombok.*;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.time.LocalDateTime;
+import site.tellmetodo.todoapp.global.entity.BaseEntity;
 
 @Entity
 @Table(name = "\"Users\"" )
@@ -14,7 +12,8 @@ import java.time.LocalDateTime;
 @Builder
 @Getter
 @EntityListeners(AuditingEntityListener.class)
-public class User {
+public class User extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -32,7 +31,4 @@ public class User {
     @Enumerated(EnumType.STRING)
     private UserStatus status;
 
-    @CreatedDate
-    @Column(name = "created_date")
-    private LocalDateTime createdDate;
 }
