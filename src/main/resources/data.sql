@@ -1,2 +1,2 @@
-INSERT INTO "Users" (id, username, password, nickname, email, bio, status, created_date)
-VALUES (1, 'eunson', '1234', '은비땽', 'ebcode2021@gmail.com', 'This is a test user', 'ACTIVE', CURRENT_TIMESTAMP);
+INSERT INTO "Users" (id, username, password, nickname, email, bio, status, created_at, updated_at)
+VALUES (1, 'eunson', '1234', '은비땽', 'ebcode2021@gmail.com', 'This is a test user', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
