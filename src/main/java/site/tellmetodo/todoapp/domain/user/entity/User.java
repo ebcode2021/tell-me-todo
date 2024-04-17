@@ -6,7 +6,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import site.tellmetodo.todoapp.global.entity.BaseEntity;
 
 @Entity
-@Table(name = "\"Users\"" )
+@Table(name = "\"User\"" )
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
