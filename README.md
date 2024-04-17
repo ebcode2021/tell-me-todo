@@ -33,7 +33,7 @@
 
 ### 4-1. 디자인
 
-[🎨 Visit Figma](https://www.figma.com/file/bSmQKmCxq6BoPg1evYlNtp/Tell-me-to-do?type=design&node-id=0-1&mode=design&t=e2aWO3ddeYylvPW0-0)
+🎨 [Visit Figma](https://www.figma.com/file/bSmQKmCxq6BoPg1evYlNtp/Tell-me-to-do?type=design&node-id=0-1&mode=design&t=e2aWO3ddeYylvPW0-0)
 
 <img width="912" alt="figma image" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7648c277-a035-4aaf-8869-3dced89e3d0c">
 
@@ -41,9 +41,9 @@
 
 ### 4-2. DB
 
-[📦 Visit ERDCloud](https://www.erdcloud.com/d/Bzk9rHYdfNwSpsCTM)
+📦 [Visit ERDCloud](https://www.erdcloud.com/d/Lmxsad4xTLCLjiD4M)
 
- <img width="1127" alt="db image" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/5f6c62b8-f775-4ba9-810a-d447b1c7da70">
+<img width="1006" alt="erd" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/ff144cd0-cb3a-40f6-8e13-c1521f2aae52">
 
 <br />
 ** 구현에 따라 지속적으로 변경이 일어나고 있습니다. 최근 ERD는 링크에서 확인 가능합니다.
@@ -52,7 +52,7 @@
 
 ### 4-3. 패키지 구조
 
-**도메인 패키지** 구조를 선택했습니다. 이는 Entity를 기반으로 패키징하여 직관적으로 개발하기 쉽게 만들고자 했습니다.
+**도메인 패키지** 구조를 선택했습니다. Entity를 기반으로 패키징하여 직관적으로 개발하기 쉽게 만들고자 했습니다.
 
 **[최상위 레벨 패키지]**
 
@@ -79,7 +79,7 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
 
 ## 5. 구현
 
-> Last Updated : 2024.03.20
+> Last Updated : 2024.04.17
 
 ### 5-1. 구현 포인트(구현 요구사항)
 
