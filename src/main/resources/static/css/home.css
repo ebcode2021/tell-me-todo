@@ -1,170 +1,178 @@
 .home-container {
-    height: 45%;
-    background-color: #6a5acd;
+	height: 45%;
+	background-color: #6a5acd;
 }
 
 .home-box {
-    width: 50%;
-    height: 70%;
-    border-radius: 10px;
-    background-color: #e6e6fa;
-    margin-bottom: 4%;
+	width: 50%;
+	height: 70%;
+	border-radius: 10px;
+	background-color: #e6e6fa;
+	margin-bottom: 4%;
 }
 
 .home-button-container {
-    align-self: end;
-    margin : 1%;
+	align-self: end;
+	margin-top: 1%;
+	margin-right: 1%;
 }
 
 .home-title {
-    font-size: 60px;
-    font-weight: 500;
+	font-size: 60px;
+	font-weight: 500;
 }
 
 .home-date {
-    font-size: 36px;
-    margin-bottom: 1%;
+	font-size: 36px;
+	margin-bottom: 1%;
 }
 
 .home-inputBox {
-    width : 50%;
-    margin-bottom : 2%;
+	width: 50%;
+	margin-bottom: 2%;
 }
 
-.home-inputButton {
-    margin-left: 4%;
-    margin-bottom: 1px;
-    background-color: #6a5acd;
-    color: white;
-    border-radius: 10px;
-    width : 35px;
-    height : 35px;
-    font-size: 30px;
+.home-inputButton,
+.home-inputButton:hover {
+	margin-left: 4%;
+	margin-bottom: 1px;
+	background-color: #6a5acd;
+	color: white;
+	border-radius: 10px;
+	width: 35px;
+	height: 35px;
+	font-size: 30px;
 }
 
 .home-todo-container {
-    width: 75%;
-    height : 55%;
-    margin-top: 2%;
-    margin-left: 25%;
+	width: 75%;
+	height: 55%;
+	margin-top: 2%;
+	margin-left: 25%;
 }
 
 .home-progress-container {
-    width : 70%;
+	width: 70%;
 }
 
 .home-progress-bar {
-    margin-top : 2%;
-    margin-left : 5%;
-    margin-right : 10%;
+	margin-top: 2%;
+	margin-left: 5%;
+	margin-right: 10%;
 }
 
 .home-progress-bar-detail {
-    width: 25%;
-    background-color: #7749f8;
+	width: 25%;
+	background-color: #7749f8;
 }
 
 .home-todo-header-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom : 3%;
-
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-bottom: 3%;
 }
 
 .home-dropdown {
-    margin-right : 22%;
+	margin-right: 22%;
 }
 
 .home-todo-list-container {
-    overflow-y: auto;
-    height : 450px;
+	overflow-y: auto;
+	height: 450px;
 }
 
 .home-todo-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-right : 35%;
-    margin-bottom : 1%;
-    border : solid grey 2px;
-    border-radius: 5px;
-    height : 65px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	margin-right: 35%;
+	margin-bottom: 1%;
+	border: solid grey 2px;
+	border-radius: 5px;
+	height: 65px;
 }
 
 .home-checkbox {
-    display: flex;
-    align-items: center;
-    margin-left: 1rem;
-    margin-right : 0.2rem;
-    margin-bottom : 0.15rem;
+	display: flex;
+	align-items: center;
+	margin-left: 1rem;
+	margin-right: 0.2rem;
+	margin-bottom: 0.15rem;
 }
 
 .form-check-input {
-    width: 24px;
-    height: 24px;
+	width: 24px;
+	height: 24px;
 }
 .home-icon-container {
-    display: flex;
-    flex-direction: row;
-    margin-right : 2%;
+	display: flex;
+	flex-direction: row;
+	margin-right: 2%;
 }
 
 .home-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border : solid grey 2px;
-    background-color: white;
-    width: 60px;
-    height : 40px;
-    border-radius: 0.25rem;
-    margin : 0.25rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: solid grey 2px;
+	background-color: white;
+	width: 60px;
+	height: 40px;
+	border-radius: 0.25rem;
+	margin: 0.25rem;
 }
 
 .home-todo-item-title {
-    border: none;
-    width : 600px;
-    margin-left: 4px;
-    font-size: 1.25rem;
+	border: none;
+	width: 600px;
+	margin-left: 4px;
+	font-size: 1.25rem;
+}
+
+.home-progress-title {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 3%;
+	margin-right: 13%;
 }
 
 /* modal 관련 */
 .modal-title {
-    margin-left : 10px;
+	margin-left: 10px;
 }
 
 .modal-footer {
-    display: flex;
-    justify-content: center;
+	display: flex;
+	justify-content: center;
 }
 
 .login-modal-btn,
-.login-modal-btn:hover
-{
-    background-color: #7749f8;
-    color: white;
-    border: 2px solid #7749f8;
-    width: 260px;
-    height: 45px;
+.login-modal-btn:hover {
+	background-color: #7749f8;
+	color: white;
+	border: 2px solid #7749f8;
+	width: 260px;
+	height: 45px;
 }
 
 .login-form-box {
-    display: flex;
-    justify-content: center;
-    margin-top : 10px;
-    margin-bottom: 10px;
-    margin-right : 20px;
+	display: flex;
+	justify-content: center;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-right: 20px;
 }
 
 .login-form-box > div {
-    display: flex;
-    justify-content: center;
-    margin-right: 20px;
-    width: 60px;
+	display: flex;
+	justify-content: center;
+	margin-right: 20px;
+	width: 60px;
 }
 
 .login-modal-input {
-    width: 60%;
+	width: 60%;
 }
