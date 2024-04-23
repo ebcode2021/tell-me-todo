@@ -8,10 +8,10 @@ import site.tellmetodo.todoapp.domain.user.entity.User;
 import java.util.List;
 import java.util.Optional;
 
-//@Repository
+@Repository
 public interface UserRepository extends JpaRepository<User, Long>, CustomizedUserRepository {
 
-        User findUserByUsername(String username);
+        Optional<User> findUserByUsername(String username);
 
     // Spring Data JPA 네이밍 컨벤션 활용 가능
 
