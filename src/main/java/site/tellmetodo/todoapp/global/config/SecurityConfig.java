@@ -9,6 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import site.tellmetodo.todoapp.global.auth.filter.LoginFailHandler;
 
 @Configuration
 @EnableWebSecurity // 모든 요청 URL이 스프링 시큐리티의 제어를 받도록 함.
@@ -26,14 +28,16 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated())
-                //.formLogin(AbstractHttpConfigurer::disable);
                         .formLogin(f -> {
                                 f.loginPage("/login")
                                 .loginProcessingUrl("/authenticate")
-                                .defaultSuccessUrl("/", true);
+                                .defaultSuccessUrl("/", true)
+                                        .failureHandler(new LoginFailHandler());
+
     //                            .usernameParameter("username")
     //                            .passwordParameter("password");
                         });
+        //SimpleUrlAuthenticationSuccessHandler
 
         http.authenticationProvider(authenticationProvider);
 
