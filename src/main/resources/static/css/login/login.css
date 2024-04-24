@@ -1,0 +1,123 @@
+/**
+    Container
+ */
+.login-main-container {
+    display: flex;
+    flex-direction: row;
+    width : 100%;
+    height: 100%;
+}
+
+.login-left-container {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.login-right-container {
+    display: flex;
+    width: 50%;
+    align-items: center;
+    justify-content: center;
+    background-color: #6A5ACD;
+}
+
+.login-title {
+    display: flex;
+    justify-content: center;
+    font-size: 64px;
+    font-weight: 500;
+    padding-top : 2%;
+    padding-right : 15%;
+}
+
+.login-sub-title {
+    font-size: 32px;
+    font-weight: 500;
+    color: #6A5ACD;
+    text-align: right;
+    padding-right: 5%;
+}
+
+.login-main-image-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top : 3%;
+}
+
+/**
+    login modal CSS
+    @details : custom-login 이 붙은 속성은 기존 Bootstrap 속성 추가
+ */
+
+.custom-login-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 400px;
+}
+
+.custom-login-modal-header {
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+}
+
+.custom-login-modal-title {
+    font-size: 28px;
+}
+
+.custom-login-modal-footer {
+    justify-content: center;
+}
+
+
+.login-form-interval {
+    margin-top: 1.5rem;
+}
+
+.login-label {
+    display: flex;
+    justify-content: center;
+    width: 5.5rem;
+}
+
+.login-modal-input {
+    width: 60%;
+    margin-right: 1rem;
+}
+
+.login-sub-question {
+    color: #6C757D;
+    text-align: right;
+    padding-right: 2%;
+    margin-top : 1rem;
+    cursor: pointer;
+}
+
+.login-footer-navigation {
+    margin-top : 1.2rem;
+    color: #6C757D;
+}
+
+.login-to-join, .login-to-guest {
+    cursor: pointer;
+}
+
+.division {
+    padding: 0 0.5rem;
+}
+
+/**
+    button 속성
+ */
+
+.btn-login, .btn-login:hover {
+    background-color: #7749F8;
+    border : 2px solid #7749F8;
+    color: white;
+    width: 15rem;
+    height: 3rem;
+}
