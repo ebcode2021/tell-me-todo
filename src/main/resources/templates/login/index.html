@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Tell me todo</title>
+    <link th:href="@{/css/common/bootstrap.min.css}" rel="stylesheet" />
+    <link th:href="@{/css/common/all.css}" rel="stylesheet" />
+    <link th:href="@{/css/login/login.css}" rel="stylesheet" />
+</head>
+<body>
+<div class="login-main-container">
+    <div class="login-left-container">
+        <div class="login-title">Tell me To Do</div>
+        <div class="login-sub-title">당신의 To Do를 공유하세요!</div>
+        <div class="login-main-image-wrapper">
+            <img src="/images/login.jpeg" alt="login main image" width="700">
+        </div>
+    </div>
+    <div class="login-right-container">
+        <!-- Login Modal -->
+        <div class="modal custom-login-modal" id="loginModal">
+            <div class="modal-content">
+                <div class="modal-header custom-login-modal-header">
+                    <div class="modal-title custom-login-modal-title">로그인</div>
+                </div>
+                <form th:action="@{/authenticate}" method="post">
+                    <div class="modal-body">
+                        <div class="content-center-row">
+                            <label for="username" class="login-label">아이디</label>
+                            <input type="text" id="username" name="username" class="form-control login-modal-input" />
+                        </div>
+                        <div class="login-form-interval"></div>
+                        <div class="content-center-row">
+                            <label for="password" class="login-label">비밀번호</label>
+                            <input type="password" id="password" name="password" class="form-control login-modal-input" />
+                        </div>
+                        <div class="login-sub-question">아이디/비밀번호를 잊으셨나요?</div>
+                    </div>
+                    <div class="modal-footer custom-login-modal-footer">
+                        <div class="content-center-col">
+                            <button type="submit" class="btn btn-login">로그인</button>
+                            <div class="content-center-row login-footer-navigation">
+                                <div class="login-to-join">회원가입</div>
+                                <div class="division">|</div>
+                                <div class="login-to-guest">게스트 로그인</div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
