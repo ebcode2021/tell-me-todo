@@ -24,12 +24,16 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
-                    .anyRequest().authenticated())
+                        .requestMatchers("/login").permitAll()
+                        .anyRequest().authenticated())
                 //.formLogin(AbstractHttpConfigurer::disable);
-                    .formLogin(f -> {
-                        f.loginPage("/login");
-                        f.defaultSuccessUrl("/");
-                    });
+                        .formLogin(f -> {
+                                f.loginPage("/login")
+                                .loginProcessingUrl("/authenticate")
+                                .defaultSuccessUrl("/", true);
+    //                            .usernameParameter("username")
+    //                            .passwordParameter("password");
+                        });
 
         http.authenticationProvider(authenticationProvider);
 
@@ -41,7 +45,7 @@ public class SecurityConfig {
      */
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/css/**", "/js/**", "/svg/**", "/login");
+        return (web) -> web.ignoring().requestMatchers("/css/**", "/js/**", "/svg/**", "/images/**", "/login");
     }
 
 }
