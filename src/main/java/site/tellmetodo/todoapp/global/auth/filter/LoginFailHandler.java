@@ -29,8 +29,7 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
 
         logger.info(errorMessage);
 
-        // 세션에 담아 메시지 보내기
+        response.sendRedirect("/login?error");
 
-        super.onAuthenticationFailure(request, response, e);
     }
 }
