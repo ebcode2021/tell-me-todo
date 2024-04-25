@@ -9,7 +9,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import site.tellmetodo.todoapp.global.auth.filter.LoginErrorMessageResetFilter;
 import site.tellmetodo.todoapp.global.auth.filter.LoginFailHandler;
 
 @Configuration
@@ -20,26 +21,21 @@ public class SecurityConfig {
     private final AuthenticationProvider authenticationProvider;
 
     /**
-     * @brief Spring Security 설정
+     * @brief Spring Security Setting
      */
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/login").permitAll()
                         .anyRequest().authenticated())
-                        .formLogin(f -> {
-                                f.loginPage("/login")
-                                .loginProcessingUrl("/authenticate")
-                                .defaultSuccessUrl("/", true)
-                                        .failureHandler(new LoginFailHandler());
-
-    //                            .usernameParameter("username")
-    //                            .passwordParameter("password");
-                        });
-        //SimpleUrlAuthenticationSuccessHandler
-
-        http.authenticationProvider(authenticationProvider);
+                .formLogin(f -> {
+                    f.loginPage("/login")
+                            .loginProcessingUrl("/authenticate")
+                            .defaultSuccessUrl("/", true)
+                            .failureHandler(new LoginFailHandler());
+                });
 
         return http.build();
     }
