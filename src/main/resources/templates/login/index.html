@@ -13,7 +13,7 @@
         <div class="login-title">Tell me To Do</div>
         <div class="login-sub-title">당신의 To Do를 공유하세요!</div>
         <div class="login-main-image-wrapper">
-            <img src="/images/login.jpeg" alt="login main image" width="700">
+            <img th:src="@{/images/login.jpeg}" alt="login main image" width="700">
         </div>
     </div>
     <div class="login-right-container">
@@ -32,7 +32,10 @@
                         <div class="login-form-interval"></div>
                         <div class="content-center-row">
                             <label for="password" class="login-label">비밀번호</label>
-                            <input type="password" id="password" name="password" class="form-control login-modal-input" />
+                            <input type="password" id="password" name="password" class="form-control login-modal-input" autoComplete="off"  />
+                        </div>
+                        <div th:if="${param.error}" class="login-error-content">
+                            아이디 또는 비밀번호가 일치하지 않습니다.
                         </div>
                         <div class="login-sub-question">아이디/비밀번호를 잊으셨나요?</div>
                     </div>
