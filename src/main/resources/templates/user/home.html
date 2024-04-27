@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Tell me todo</title>
     <link th:href="@{/css/common/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{/css/common/all.css}" rel="stylesheet">
-    <link th:href="@{/css/home.css}" rel="stylesheet">
+    <link th:href="@{/css/user/home.css}" rel="stylesheet">
 </head>
 <body>
 <div class="home-container content-center-col">
@@ -27,6 +29,9 @@
 <div class="home-todo-container">
     <div class="home-todo-header-container">
         <div class="home-progress-container">
+<!--            <div sec:authorize="isAuthenticated()">-->
+<!--                인증객체 잘 들어오나?-->
+<!--            </div>-->
             <div class="fs-3">달성률 </div>
             <div class="progress home-progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
                 <div class="progress-bar home-progress-bar-detail" ></div>
