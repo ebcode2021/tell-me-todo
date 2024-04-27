@@ -24,7 +24,7 @@ public class LoginFailHandler extends SimpleUrlAuthenticationFailureHandler {
         } else if (e instanceof UsernameNotFoundException) {
             errorMessage +="존재하지 않는 아이디 입니다.";
         } else {
-            errorMessage +="이 메시지가 보이면 공부를 꽤 잘못한 것입니다.";
+            errorMessage += "이 메시지가 보이면 공부를 꽤 잘못한 것입니다.";
         }
 
         logger.info(errorMessage);
