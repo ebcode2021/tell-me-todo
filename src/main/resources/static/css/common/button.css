@@ -1,0 +1,28 @@
+/**
+    자주 쓰는 custom button
+ */
+
+.btn-white-custom, .btn-white-custom:hover {
+    background-color: white;
+    color: #6610F2;
+    border : 2px solid #6610F2;
+}
+
+.btn-purple-custom, .btn-purple-custom:hover {
+    background-color: #7749F8;
+    color: white;
+    border: 2px solid #7749F8;
+}
+
+/* 밑부터는 커스텀 들어가야 함*/
+.purple-button-sm {
+    background-color: white;
+    color: indigo;
+    border: 2px solid #7749f8;
+}
+
+.btn-custom, .btn-custom:hover {
+    background-color: #7749F8;
+    border : 2px solid #7749F8;
+    color: white;
+}
