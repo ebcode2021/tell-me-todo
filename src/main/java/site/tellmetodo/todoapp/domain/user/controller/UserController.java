@@ -5,10 +5,12 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import site.tellmetodo.todoapp.domain.user.dto.UserFormDto;
 import site.tellmetodo.todoapp.domain.user.service.UserService;
@@ -44,9 +46,10 @@ public class UserController {
     public void addUser(@Valid @ModelAttribute UserFormDto userJoinDto) {
     }
 
-    @GetMapping("/users/{userId}")
-    public void getUser(@PathVariable String userId) {
-
+    @GetMapping("/users/exists/{username}")
+    public ResponseEntity<Boolean> existUser(@PathVariable("username") String username, Model model) {
+        System.out.println("----- + " + username);
+        return ResponseEntity.ok(true);
     }
 
 
@@ -58,3 +61,8 @@ public class UserController {
     }
 
 }
+
+//    @GetMapping("/users/{userId}")
+//    public void getUser(@PathVariable String userId) {
+
+//    }
