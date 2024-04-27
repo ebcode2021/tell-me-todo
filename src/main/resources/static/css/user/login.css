@@ -109,7 +109,8 @@
 }
 
 .login-to-join, .login-to-guest {
-    cursor: pointer;
+    color: #6C757D;
+    text-decoration: none;
 }
 
 .division {
