@@ -32,17 +32,27 @@
     margin-top: 3%;
 }
 
-.join-form-wrapper>input {
-    width: 400px;
-    margin-bottom: 3%;
-}
-
 .join-form-wrapper>button {
     margin-top : 5%;
     width: 260px;
     height: 50px;
     margin-left: 85px;
     font-weight: lighter;
+}
+
+.join-username-wrapper {
+    display: flex;
+}
+
+.join-username-wrapper>button {
+    margin-left: 15px;
+    height: 38px;
+    font-size: 16px;
+}
+
+.join-form-wrapper>input, .join-username-wrapper>input {
+    width: 400px;
+    margin-bottom: 3%;
 }
 
 .join-label-wrapper>label {
