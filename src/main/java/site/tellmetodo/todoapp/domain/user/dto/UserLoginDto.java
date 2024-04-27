@@ -2,8 +2,8 @@ package site.tellmetodo.todoapp.domain.user.dto;
 
 import lombok.*;
 
-@Data
-public class LoginUserDto {
+@Getter @Setter
+public class UserLoginDto {
 
     private String username;
 
