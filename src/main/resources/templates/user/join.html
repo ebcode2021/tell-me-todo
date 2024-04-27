@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tell me todo</title>
+    <link th:href="@{/css/common/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/common/all.css}" rel="stylesheet">
+    <link th:href="@{/css/common/button.css}" rel="stylesheet">
+    <link th:href="@{/css/user/join.css}" rel="stylesheet">
+</head>
+<body>
+    <div class="join-container">
+        <button th:onclick="|location.href='@{/}'|" type="button" class="btn btn-white-custom btn-lg">
+            <- HOME
+        </button>
+        <div class="join-form-container ">
+            <div class="join-title">회원가입</div>
+            <form th:object="${userFormDto}" th:action="@{/users}" method="post" class="join-form-wrapper">
+                <!--    id    -->
+                <div class="join-label-wrapper">
+                    <label for="username" class="form-label">아이디</label>
+                </div>
+                <div class="join-username-wrapper">
+                    <input id="username" type="text" class="form-control input-custom" th:field="*{username}">
+                    <button type="button" onclick="checkUsernameDuplicate()" class="btn btn-purple-custom"> 중복 확인</button>
+                </div>
+                <!--    pw    -->
+                <div class="join-label-wrapper">
+                    <label for="password" class="form-label">비밀번호</label>
+                </div>
+                <input id="password" type="password" class="form-control input-custom" th:field="*{password}" autoComplete="off">
+                <!--    check pw    -->
+                <div class="join-label-wrapper">
+                    <label for="checkPassword" class="form-label">비밀번호 재확인</label>
+                </div>
+                <input id="checkPassword" type="password" class="form-control input-custom" autoComplete="off">
+                <!--    nickname    -->
+                <div class="join-label-wrapper">
+                    <label for="nickname" class="form-label">닉네임</label>
+                </div>
+                <input id="nickname" type="text" class="form-control input-custom" th:field="*{nickname}">
+                <!--    email    -->
+                <div class="join-label-wrapper">
+                    <label for="email" class="form-label"><span>(선택) </span>이메일</label>
+                </div>
+                <input id="email" type="text" class="form-control input-custom" th:field="*{email}">
+                <button class="btn btn-purple-custom">가입</button>
+            </form>
+        </div>
+        <div class="join-image-wrapper">
+            <img th:src="@{/svg/join.svg}" alt="join-image">
+        </div>
+    </div>
+</body>
+<script th:src="@{/js/api/user-api.js}"></script>
+<script th:src="@{/js/user/join.js}"></script>
+<script th:src="@{/js/api/common/sendApiRequest.js}"></script>
+<script>
+</script>
+</html>
