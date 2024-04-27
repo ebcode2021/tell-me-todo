@@ -24,6 +24,11 @@ body {
 	font-family: 'BMJUA', serif;
 }
 
+.input-custom:focus {
+	border: 1px solid #7749F8;
+	box-shadow: 0 0 0 .25rem rgba(119, 73, 248, .25);
+}
+
 .content-center-col {
 	display: flex;
 	flex-direction: column;
@@ -33,19 +38,6 @@ body {
 
 .content-center-row {
 	display: flex;
-	flex-direction: row;
 	align-items: center;
 	justify-content: center;
-}
-
-.purple-button-sm {
-	background-color: white;
-	color: indigo;
-	border: 2px solid #7749f8;
-}
-
-.btn-custom, .btn-custom:hover {
-	background-color: #7749F8;
-	border : 2px solid #7749F8;
-	color: white;
 }
