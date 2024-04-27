@@ -1,10 +1,16 @@
 spring:
+#  Set Database
   datasource:
     driver-class-name: org.postgresql.Driver
     url: jdbc:postgresql://localhost:5432/tellmetodo
     username: postgres
     password: postgres
 
+# Set Thymeleaf error messages
+  messages:
+    basename: errors
+
+# Auto Server Restart (Detect code change)
   devtools:
     livereload:
       enabled: true
@@ -13,13 +19,14 @@ spring:
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: create-drop # Test
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     properties:
       hibernate.format_sql: true
     show-sql: true
     defer-datasource-initialization: true
+
   sql:
     init:
       mode: always
