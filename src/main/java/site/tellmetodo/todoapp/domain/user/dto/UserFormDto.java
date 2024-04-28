@@ -21,7 +21,7 @@ public class UserFormDto {
 
     @NotBlank
     @Length(min = 8, max = 20)
-    @Pattern(regexp = "^[a-zA-Z0-9!@#$%^&*()]*$")
+    @Pattern(regexp = "^[a-zA-Z0-9!@#$%^&*]*$")
     private String password;
 
     @NotBlank
