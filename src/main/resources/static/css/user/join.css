@@ -50,13 +50,24 @@
     font-size: 16px;
 }
 
+.join-label-wrapper {
+    display: flex;
+    align-items: center;
+}
+
 .join-form-wrapper>input, .join-username-wrapper>input {
     width: 400px;
     margin-bottom: 3%;
 }
 
+.join-label-wrapper>span {
+    font-size: 13px;
+    margin-bottom: 0.5rem;
+}
+
 .join-label-wrapper>label {
     font-size: 20px;
+    margin-right: 10px;
 }
 
 .form-label>span {
@@ -74,4 +85,15 @@
 .join-image-wrapper>img {
     width: 400px;
     margin-top: auto;
+}
+
+/**
+    Validate message 속성
+ */
+.join-validate-success {
+    color: #7749F8;
+}
+
+.join-validate-fail {
+    color: red;
 }
