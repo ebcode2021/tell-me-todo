@@ -1,6 +1,6 @@
 const existUsername = async (username) => {
     try {
-        await sendApiRequest(
+        return await sendApiRequest(
             'GET',
             "/users/exists/" + username,
         )
