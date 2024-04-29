@@ -2,6 +2,8 @@ package site.tellmetodo.todoapp.domain.user.entity;
 
 import lombok.*;
 import jakarta.persistence.*;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import site.tellmetodo.todoapp.global.entity.BaseEntity;
 
@@ -12,6 +14,7 @@ import site.tellmetodo.todoapp.global.entity.BaseEntity;
 @Builder
 @Getter
 @EntityListeners(AuditingEntityListener.class)
+@DynamicInsert
 public class User extends BaseEntity {
 
     @Id
@@ -28,7 +31,8 @@ public class User extends BaseEntity {
 
     private String bio;
 
+    @Column(columnDefinition = "varchar(10) default 'ACTIVE'")
     @Enumerated(EnumType.STRING)
-    private UserStatus status;
+    private UserStatus status = UserStatus.ACTIVE;
 
 }
