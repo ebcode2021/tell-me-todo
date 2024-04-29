@@ -1,2 +1,2 @@
 INSERT INTO "User" (id, username, password, nickname, email, bio, status, created_at, updated_at)
-VALUES (1, 'eunson', '1234', '은비땽', 'ebcode2021@gmail.com', 'This is a test user', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
+VALUES (100, 'eunson', '$2a$10$JJtPo4mrBAJcYgS/ZvFT1.Jel9wbncn7191Owpl322.R3/jo7rVKi', '은비땽', 'ebcode2021@gmail.com', 'This is a test user', 'ACTIVE', CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
