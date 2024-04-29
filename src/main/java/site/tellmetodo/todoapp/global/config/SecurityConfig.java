@@ -1,6 +1,7 @@
 package site.tellmetodo.todoapp.global.config;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -28,7 +29,7 @@ public class SecurityConfig {
 
         http.csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/login").permitAll()
+                        .requestMatchers("/login", "/join", "/users/**").permitAll()
                         .anyRequest().authenticated())
                 .formLogin(f -> {
                     f.loginPage("/login")
@@ -45,7 +46,6 @@ public class SecurityConfig {
      */
     @Bean
     public WebSecurityCustomizer webSecurityCustomizer() {
-        return (web) -> web.ignoring().requestMatchers("/css/**", "/js/**", "/svg/**", "/images/**", "/login", "/join", "/users/**");
+        return (web) -> web.ignoring().requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
-
 }
