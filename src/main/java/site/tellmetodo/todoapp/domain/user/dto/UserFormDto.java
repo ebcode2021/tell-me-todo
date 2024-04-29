@@ -6,6 +6,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
+import site.tellmetodo.todoapp.domain.user.entity.User;
 
 /**
  * @brief 회원 가입 dto
@@ -16,7 +17,7 @@ public class UserFormDto {
 
     @NotBlank
     @Length(min = 6, max = 20)
-    @Pattern(regexp = "^[a-z0-9]*$")
+    @Pattern(regexp = "^[a-zA-Z0-9_]*$")
     private String username;
 
     @NotBlank
@@ -30,4 +31,13 @@ public class UserFormDto {
 
     @Email
     private String email;
+
+    public User toEntity() {
+        return User.builder()
+                .username(username)
+                .password(password)
+                .nickname(nickname)
+                .email(email)
+                .build();
+    }
 }
