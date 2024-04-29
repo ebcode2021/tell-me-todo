@@ -13,7 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long>, CustomizedUse
 
         Optional<User> findUserByUsername(String username);
 
-    // Spring Data JPA 네이밍 컨벤션 활용 가능
+        boolean existsByUsername(String username);
 
 }
 

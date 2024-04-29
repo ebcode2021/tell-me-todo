@@ -11,6 +11,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import site.tellmetodo.todoapp.domain.user.dto.UserFormDto;
 import site.tellmetodo.todoapp.domain.user.service.UserService;
@@ -38,18 +39,25 @@ public class UserController {
     }
 
     @GetMapping("/join")
-    public String join(@ModelAttribute("userFormDto") UserFormDto userJoinDto){
+    public String join(@ModelAttribute("userFormDto") UserFormDto userFormDto, Model model){
+        model.addAttribute("userFormDto", userFormDto);
         return "user/join";
     }
 
     @PostMapping ("/users")
-    public void addUser(@Valid @ModelAttribute UserFormDto userJoinDto) {
+    public String addUser(@Valid @ModelAttribute UserFormDto userFormDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "user/join";
+        }
+        if (userService.join(userFormDto) == null) {
+            log.error("사용자 추가에 실패하였습니다.");
+        };
+        return "redirect:/";
     }
 
     @GetMapping("/users/exists/{username}")
-    public ResponseEntity<Boolean> existUser(@PathVariable("username") String username, Model model) {
-        System.out.println("----- + " + username);
-        return ResponseEntity.ok(true);
+    public ResponseEntity<Boolean> existUser(@PathVariable("username") String username) {
+        return userService.isUsername(username) ? ResponseEntity.ok(true) : ResponseEntity.ok(false);
     }
 
 

@@ -3,6 +3,7 @@
  */
 const validateUsername = () => {
     clearUsernameMessage();
+    document.getElementById('username').setAttribute("data-valid", "false");
 
     const button = document.getElementById('username-button');
     button.disabled = true;
@@ -15,7 +16,7 @@ const validateUsername = () => {
         document.getElementById('usernameCheckFail').innerText = '아이디는 최대 20자까지 가능합니다.';
     } else if (!/^[a-zA-Z0-9_]*$/.test(username)) {
         document.getElementById('usernameCheckFail').innerText = '허용되지 않는 문자가 포함되어 있습니다.';
-    } else
+    }
 
     if (username.length>= 6 && username.length <= 20) {
         button.disabled = false;
@@ -84,7 +85,10 @@ const checkPasswordMatch = () => {
     if (checkPassword.trim().length === 0 || document.getElementById('passwordLengthFail').innerText.length) {
         document.getElementById('password').setAttribute("data-valid", "false");
         document.getElementById('checkPassword').setAttribute("data-valid", "false");
-    } else if (password === checkPassword) {
+        return
+    }
+
+    if (password === checkPassword) {
         document.getElementById('passwordCheckSuccess').innerText = '비밀번호가 일치합니다.';
         document.getElementById('password').setAttribute("data-valid", "true");
         document.getElementById('checkPassword').setAttribute("data-valid", "true");
@@ -105,12 +109,12 @@ const checkUsernameDuplicate = async () => {
     const username = document.getElementById("username").value;
     const result = await existUsername(username);
 
-    // if (result === true) {
-    //     document.getElementById('usernameCheckFail').innerText = '이미 사용 중인 아이디입니다.';
-    // } else {
+    if (result === true) {
+        document.getElementById('usernameCheckFail').innerText = '이미 사용 중인 아이디입니다.';
+    } else {
         document.getElementById('usernameCheckSuccess').innerText = '사용 가능한 아이디입니다.';
     document.getElementById('username').setAttribute("data-valid", "true");
-    // }
+    }
 }
 
 /**
@@ -158,6 +162,7 @@ const allInputValidObserver = () => {
             list.forEach( mutation => {
                 if (mutation.type === 'attributes' && mutation.attributeName === 'data-valid') {
                     let valid = mutation.target.getAttribute("data-valid");
+
                     if (valid === 'false' && valid !== mutation.oldValue) {
                         validCnt--;
                     } else if (valid === 'true' && valid !== mutation.oldValue) {
@@ -165,9 +170,6 @@ const allInputValidObserver = () => {
                     }
                 }
             })
-            console.log('validCnt : ' + validCnt);
-            console.log('target.length : ' + target.length);
-            console.log('----------------------')
             button.disabled = (validCnt !== target.length);
         })
         observer.observe(target[i], config);
