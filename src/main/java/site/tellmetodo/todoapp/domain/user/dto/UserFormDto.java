@@ -3,6 +3,7 @@ package site.tellmetodo.todoapp.domain.user.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Length;
@@ -13,6 +14,7 @@ import site.tellmetodo.todoapp.domain.user.entity.User;
  * @details Bean Validation 을 통한 값 검증
  */
 @Getter @Setter
+@Builder
 public class UserFormDto {
 
     @NotBlank
