@@ -31,12 +31,11 @@ class UserServiceTest {
     @DisplayName("회원가입")
     void join() {
         // given
-        UserFormDto userFormDto = UserFormDto.builder()
-                .username("user_1")
-                .password(passwordEncoder.encode("1234"))
-                .email("test@gmail.com")
-                .nickname("test user")
-                .build();
+        UserFormDto userFormDto = new UserFormDto();
+        userFormDto.setUsername("username");
+        userFormDto.setPassword("testPassword");
+        userFormDto.setNickname("이메일");
+        userFormDto.setEmail("a@b.com");
         User user = User.createUser(userFormDto);
 
         // mocking

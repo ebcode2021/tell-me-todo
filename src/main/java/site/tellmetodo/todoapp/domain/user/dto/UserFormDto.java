@@ -12,9 +12,6 @@ import site.tellmetodo.todoapp.domain.user.entity.User;
  * @details Bean Validation 을 통한 값 검증
  */
 @Getter @Setter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
 public class UserFormDto {
 
     @NotBlank
