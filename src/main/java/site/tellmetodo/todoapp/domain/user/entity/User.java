@@ -35,4 +35,7 @@ public class User extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private UserStatus status = UserStatus.ACTIVE;
 
+    public static User createUser() {
+        return new User();
+    }
 }
