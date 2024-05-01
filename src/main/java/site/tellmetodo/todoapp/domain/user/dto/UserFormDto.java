@@ -3,9 +3,7 @@ package site.tellmetodo.todoapp.domain.user.dto;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.validator.constraints.Length;
 import site.tellmetodo.todoapp.domain.user.entity.User;
 
@@ -14,6 +12,8 @@ import site.tellmetodo.todoapp.domain.user.entity.User;
  * @details Bean Validation 을 통한 값 검증
  */
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor(access = AccessLevel.PRIVATE)
 @Builder
 public class UserFormDto {
 
@@ -35,11 +35,12 @@ public class UserFormDto {
     private String email;
 
     public User toEntity() {
-        return User.builder()
-                .username(username)
-                .password(password)
-                .nickname(nickname)
-                .email(email)
-                .build();
+        return User.createUser(this);
+//        return User.builder()
+//                .username(username)
+//                .password(password)
+//                .nickname(nickname)
+//                .email(email)
+//                .build();
     }
 }

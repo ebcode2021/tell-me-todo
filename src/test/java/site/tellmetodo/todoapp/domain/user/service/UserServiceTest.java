@@ -37,7 +37,7 @@ class UserServiceTest {
                 .email("test@gmail.com")
                 .nickname("test user")
                 .build();
-        User user = userFormDto.toEntity();
+        User user = User.createUser(userFormDto);
 
         // mocking
         when(userRepository.save(any(User.class))).thenReturn(user);
