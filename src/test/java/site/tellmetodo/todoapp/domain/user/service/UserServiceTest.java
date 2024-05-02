@@ -33,12 +33,12 @@ class UserServiceTest {
         // given
         UserFormDto userFormDto = new UserFormDto();
         userFormDto.setUsername("username");
-        userFormDto.setPassword("testPassword");
+        userFormDto.setPassword(passwordEncoder.encode("testPassword1234"));
         userFormDto.setNickname("이메일");
         userFormDto.setEmail("a@b.com");
         User user = User.createUser(userFormDto);
 
-        // mocking
+        // stubbing
         when(userRepository.save(any(User.class))).thenReturn(user);
 
         // when
