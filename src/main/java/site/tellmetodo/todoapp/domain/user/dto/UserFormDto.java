@@ -25,7 +25,7 @@ public class UserFormDto {
     private String password;
 
     @NotBlank
-    @Pattern(regexp = "^[ㄱ-ㅎㅏ-ㅣ가-힣a-z0-9\\s]*$")
+//    @Pattern(regexp = "^[ㄱ-ㅎㅏ-ㅣ가-힣a-z0-9\\s]*$")
     private String nickname;
 
     @Email
