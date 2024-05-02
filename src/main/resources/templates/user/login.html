@@ -36,7 +36,9 @@
                         </div>
                         <div th:if="${param.error}" th:text="#{login.fail}" class="login-error-content">
                         </div>
-                        <div class="login-sub-question">아이디/비밀번호를 잊으셨나요?</div>
+                        <div class="login-sub-question">
+<!--                            아이디/비밀번호를 잊으셨나요?-->
+                        </div>
                     </div>
                     <div class="modal-footer custom-login-modal-footer">
                         <div class="content-center-col">
@@ -46,7 +48,9 @@
                                     회원가입
                                 </a>
                                 <div class="division">|</div>
-                                <div class="login-to-guest">게스트 로그인</div>
+                                <a th:href="@{/guest}" class="login-to-guest">
+                                    게스트 로그인
+                                </a>
                             </div>
                         </div>
                     </div>
