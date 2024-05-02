@@ -12,7 +12,9 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import site.tellmetodo.todoapp.domain.user.dto.UserFormDto;
 import site.tellmetodo.todoapp.domain.user.service.UserService;
 import site.tellmetodo.todoapp.global.auth.security.UserDetailsImpl;
@@ -36,6 +38,11 @@ public class UserController {
     @GetMapping("/login")
     public String login() {
         return "user/login";
+    }
+
+    @GetMapping("/guest")
+    public String guest() {
+        return "user/guest-home";
     }
 
     @GetMapping("/join")
