@@ -1,5 +1,5 @@
 .home-container {
-	height: 45%;
+	max-height: 45%;
 	background-color: #6a5acd;
 }
 
@@ -46,7 +46,7 @@
 
 .home-todo-container {
 	width: 75%;
-	height: 55%;
+	max-height: 55%;
 	margin-top: 2%;
 	margin-left: 25%;
 }
@@ -139,3 +139,6 @@
 	margin-right: 13%;
 }
 
+.home-progress-title>span {
+	font-size: 1.75rem;
+}
