@@ -2,6 +2,7 @@ package site.tellmetodo.todoapp.domain.todo.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 import site.tellmetodo.todoapp.domain.user.entity.User;
 import site.tellmetodo.todoapp.global.entity.BaseEntity;
@@ -9,10 +10,9 @@ import site.tellmetodo.todoapp.global.entity.BaseEntity;
 @Entity
 @Table(name = "\"Todo\"")
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor(access = AccessLevel.PRIVATE)
-@Builder
 @Getter
 @EntityListeners(AuditingEntityListener.class)
+@DynamicInsert
 public class Todo extends BaseEntity {
 
     @Id
