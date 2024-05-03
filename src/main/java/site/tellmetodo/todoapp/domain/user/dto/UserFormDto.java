@@ -25,7 +25,6 @@ public class UserFormDto {
     private String password;
 
     @NotBlank
-//    @Pattern(regexp = "^[ㄱ-ㅎㅏ-ㅣ가-힣a-z0-9\\s]*$")
     private String nickname;
 
     @Email
@@ -33,11 +32,5 @@ public class UserFormDto {
 
     public User toEntity() {
         return User.createUser(this);
-//        return User.builder()
-//                .username(username)
-//                .password(password)
-//                .nickname(nickname)
-//                .email(email)
-//                .build();
     }
 }
