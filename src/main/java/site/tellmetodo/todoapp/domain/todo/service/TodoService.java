@@ -9,4 +9,5 @@ public interface TodoService {
 
     List<TodoListDto> getTodoListByUserIdAndLocalDate(Long id, LocalDate date);
 
+    void removeTodoListByDate(Long id, LocalDate date);
 }

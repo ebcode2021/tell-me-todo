@@ -2,13 +2,12 @@ package site.tellmetodo.todoapp.domain.todo.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
+import org.springframework.transaction.annotation.Transactional;
 import site.tellmetodo.todoapp.domain.todo.entity.Todo;
 
-import java.util.Date;
-import java.util.List;
 
 @Repository
+@Transactional
 public interface TodoRepository extends JpaRepository<Todo, Long>, CustomizedTodoRepository {
 
 }

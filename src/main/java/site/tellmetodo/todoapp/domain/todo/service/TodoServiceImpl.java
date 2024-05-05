@@ -3,6 +3,7 @@ package site.tellmetodo.todoapp.domain.todo.service;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
 import site.tellmetodo.todoapp.domain.todo.entity.Todo;
 import site.tellmetodo.todoapp.domain.todo.repository.TodoRepository;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@Transactional
 @RequiredArgsConstructor
 @Slf4j
 public class TodoServiceImpl implements TodoService{
@@ -27,5 +29,10 @@ public class TodoServiceImpl implements TodoService{
         return todoList.stream()
                 .map(TodoListDto::toDto)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public void removeTodoListByDate(Long id, LocalDate date) {
+        todoRepository.deleteTodoListByUserIdAndDate(id, date);
     }
 }
