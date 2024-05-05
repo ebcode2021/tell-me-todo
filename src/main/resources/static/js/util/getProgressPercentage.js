@@ -11,9 +11,6 @@ function getProgressPercentage() {
     let totalItemsCount = document.querySelectorAll('.home-todo-item').length;
     let progressPercentage = (checkedCount / totalItemsCount) * 100;
 
-    console.log('전체 개수 : ' + totalItemsCount);
-    console.log('체크된 개수 : ' + checkedCount);
-
     if (totalItemsCount === 0) {
         progressPercentage = 0;
     }
