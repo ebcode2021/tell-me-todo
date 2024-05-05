@@ -1,17 +1,18 @@
 .home-container {
-	max-height: 45%;
+	height: 35%;
 	background-color: #6a5acd;
 }
 
 .home-box {
 	width: 50%;
-	height: 70%;
+	height: 65%;
 	border-radius: 10px;
 	background-color: #e6e6fa;
 	margin-bottom: 4%;
 }
 
 .home-button-container {
+	display: flex;
 	align-self: end;
 	margin-top: 1%;
 	margin-right: 1%;
@@ -91,6 +92,7 @@
 	margin-bottom: 1%;
 	border: solid grey 2px;
 	border-radius: 5px;
+	width: 850px;
 	height: 65px;
 }
 
@@ -141,4 +143,22 @@
 
 .home-progress-title>span {
 	font-size: 1.75rem;
+}
+
+.home-sort-button {
+	height: 42px;
+}
+
+
+.home-user-image-button, .home-user-image-button:focus {
+	display: flex;
+	justify-items: center;
+	width: 65px;
+	height: 65px;
+	box-shadow: none;
+}
+
+.home-user-icon {
+	width: 100%;
+	height: 100%;
 }
