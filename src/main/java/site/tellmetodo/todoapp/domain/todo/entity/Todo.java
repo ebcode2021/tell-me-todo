@@ -4,8 +4,11 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
 import site.tellmetodo.todoapp.domain.user.entity.User;
 import site.tellmetodo.todoapp.global.entity.BaseEntity;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "\"Todo\"")
@@ -20,7 +23,7 @@ public class Todo extends BaseEntity {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_Id", updatable = false)
+    @JoinColumn(name = "user_Id")
     private User user;
 
     private String content;
@@ -28,5 +31,6 @@ public class Todo extends BaseEntity {
     private boolean favorite;
 
     private boolean completed;
+
 
 }
