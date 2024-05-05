@@ -103,21 +103,21 @@ const renderTodoList = () => {
         function  initCheckboxInput() {
             checkboxInput.classList.add('form-check-input', 'home-checkbox', 'checkbox-icon');
             checkboxInput.type = 'checkbox';
-            checkboxInput.id = "input_" + item.id;
+            checkboxInput.id = "checkbox-" + item.id;
             checkboxInput.checked = item.completed;
         }
 
         function initTextInput() {
             textInput.classList.add('form-control', 'home-todo-item-title');
             textInput.type = 'text';
-            textInput.id = "text_" + item.id;
+            textInput.id = "text-" + item.id;
             textInput.value = item.content;
         }
 
         function initFavoriteButton() {
             favoriteButton.type = 'button';
             favoriteButton.classList.add('home-icon');
-            favoriteButton.id = 'favorite-icon_' + item.id;
+            favoriteButton.id = 'favorite-icon-' + item.id;
         }
 
         function initFavoriteImage() {
@@ -131,7 +131,7 @@ const renderTodoList = () => {
         function initDeleteButton() {
             deleteButton.type = 'button';
             deleteButton.classList.add('home-icon');
-            deleteButton.id = 'delete-icon_' + item.id;
+            deleteButton.id = 'delete-icon-' + item.id;
         }
 
         function initDeleteImg() {
