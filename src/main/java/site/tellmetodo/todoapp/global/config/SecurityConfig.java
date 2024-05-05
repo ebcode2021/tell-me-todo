@@ -10,8 +10,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityCustomizer;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import site.tellmetodo.todoapp.global.auth.filter.LoginErrorMessageResetFilter;
 import site.tellmetodo.todoapp.global.auth.filter.LoginFailHandler;
 
 @Configuration
@@ -27,16 +25,21 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf(AbstractHttpConfigurer::disable)
-                .authorizeHttpRequests(authz -> authz
-                        .requestMatchers("/login", "/join", "/guest", "/users/**").permitAll()
-                        .anyRequest().authenticated())
-                .formLogin(f -> {
-                    f.loginPage("/login")
-                            .loginProcessingUrl("/authenticate")
-                            .defaultSuccessUrl("/", true)
-                            .failureHandler(new LoginFailHandler());
-                });
+        http
+            .csrf(AbstractHttpConfigurer::disable)
+            .authorizeHttpRequests(authz -> authz
+                    .requestMatchers("/login", "/join", "/guest", "/users/**").permitAll()
+                    .anyRequest().authenticated())
+            .formLogin(f -> {
+                f.loginPage("/login")
+                        .loginProcessingUrl("/authenticate")
+                        .defaultSuccessUrl("/", true)
+                        .failureHandler(new LoginFailHandler());
+            })
+            .logout(l -> {
+                l.logoutUrl("/logout")
+                .logoutSuccessUrl("/");
+            });
 
         return http.build();
     }
