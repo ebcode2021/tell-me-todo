@@ -9,4 +9,6 @@ import java.util.List;
 public interface CustomizedTodoRepository {
 
     List<Todo> findTodoListByUserIdAndDate(Long id, LocalDate date);
+
+    void deleteTodoListByUserIdAndDate(Long id, LocalDate date);
 }
