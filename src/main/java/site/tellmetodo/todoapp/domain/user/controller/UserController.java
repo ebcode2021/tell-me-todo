@@ -12,12 +12,16 @@ import org.springframework.security.web.authentication.logout.SecurityContextLog
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
+import site.tellmetodo.todoapp.domain.todo.service.TodoService;
 import site.tellmetodo.todoapp.domain.user.dto.UserFormDto;
 import site.tellmetodo.todoapp.domain.user.service.UserService;
 import site.tellmetodo.todoapp.global.auth.security.UserDetailsImpl;
+
+import java.time.LocalDate;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -25,13 +29,16 @@ import site.tellmetodo.todoapp.global.auth.security.UserDetailsImpl;
 public class UserController {
 
     private final UserService userService;
+    private final TodoService todoService;
 
     @GetMapping("/")
-    public String home(@AuthenticationPrincipal UserDetailsImpl userDetails) {
-        if (userDetails == null) {
-            log.info("이게 보인다는 것은 진짜 코드가 박살난거");
-        }
-        // userDetails에 있는 유저를 넘겨줘야 함
+    public String home(@AuthenticationPrincipal UserDetailsImpl userDetails, Model model) {
+        Long id = userDetails.getUser().getId();
+        LocalDate date = LocalDate.now();
+
+        List<TodoListDto> todoList = todoService.getTodoListByUserIdAndLocalDate(id, date);
+        model.addAttribute("todoList", todoList);
+
         return "user/home";
     }
 
@@ -67,13 +74,11 @@ public class UserController {
         return userService.isUsername(username) ? ResponseEntity.ok(true) : ResponseEntity.ok(false);
     }
 
-
-    @PostMapping("/users/logout")
-    public String logout(HttpServletRequest request, HttpServletResponse response) {
-        new SecurityContextLogoutHandler().logout(request, response, SecurityContextHolder.getContext().getAuthentication());
-
-        return "redirect:/login";
+    @GetMapping("/myPage")
+    public String myPage() {
+        return "user/myPage";
     }
+
 
 }
 
