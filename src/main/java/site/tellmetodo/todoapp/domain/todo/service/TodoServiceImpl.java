@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import site.tellmetodo.todoapp.domain.todo.dto.TodoCreateDto;
 import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
 import site.tellmetodo.todoapp.domain.todo.entity.Todo;
 import site.tellmetodo.todoapp.domain.todo.repository.TodoRepository;
@@ -34,5 +35,15 @@ public class TodoServiceImpl implements TodoService{
     @Override
     public void removeTodoListByDate(Long id, LocalDate date) {
         todoRepository.deleteTodoListByUserIdAndDate(id, date);
+    }
+
+    @Override
+    public void addTodo(TodoCreateDto todoCreateDto) {
+        todoRepository.save(Todo.createTodo(todoCreateDto));
+    }
+
+    @Override
+    public void editTodoFavorite(Long id) {
+        todoRepository.reverseTodoFavorite(id);
     }
 }

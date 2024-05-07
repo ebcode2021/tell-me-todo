@@ -4,6 +4,7 @@ import com.querydsl.core.types.dsl.DateTimePath;
 import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.core.types.dsl.StringExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
+import com.querydsl.jpa.impl.JPAUpdateClause;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -44,6 +45,14 @@ public class CustomizedTodoRepositoryImpl implements CustomizedTodoRepository {
             .where(todo.user.id.eq(id)
                 .and(formattedDate.eq(date.toString())))
             .execute();
+    }
+
+    @Override
+    public void reverseTodoFavorite(Long id) {
+        JPAUpdateClause updateClause = jpaQueryFactory.update(todo)
+                .where(todo.id.eq(id));
+        updateClause.set(todo.favorite, todo.favorite.not())
+                .execute();
     }
 }
 
