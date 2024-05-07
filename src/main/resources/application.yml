@@ -10,7 +10,13 @@ spring:
   messages:
     basename: errors
 
-# Auto Server Restart (Detect code change)
+# Hidden Http Method Filter
+  mvc:
+    hidden-method:
+      filter:
+        enabled: true
+
+  # Auto Server Restart (Detect code change)
   devtools:
     livereload:
       enabled: true
