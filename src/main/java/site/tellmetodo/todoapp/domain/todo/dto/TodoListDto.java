@@ -9,6 +9,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class TodoListDto {
 
+    private Long id;
+
     private String content;
 
     private boolean favorite;
@@ -21,6 +23,7 @@ public class TodoListDto {
 
     public static TodoListDto toDto(Todo todo) {
         return new TodoListDto(
+                todo.getId(),
                 todo.getContent(),
                 todo.isFavorite(),
                 todo.isCompleted(),
