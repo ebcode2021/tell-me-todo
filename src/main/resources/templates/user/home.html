@@ -24,13 +24,13 @@
     </div>
     <div class="home-box content-center-col">
         <div class="home-title"> To do List </div>
-        <div class="home-date" id="current-date"> </div>
-        <div class="home-inputBox content-center-row">
+        <div class="home-date" id="current-date">연월일</div>
+        <form th:action="@{/todos}" method="post" th:onsubmit="|return checkContentLength()|" class="home-inputBox content-center-row">
             <div class="input-group">
-                <input type="text" class="form-control input-custom" id="add-todo-input" placeholder="입력해 주세요!" autocomplete="off">
+                <input type="text" class="form-control input-custom" id="add-todo-input" th:name="content" placeholder="입력해 주세요!" autocomplete="off" autofocus>
             </div>
-            <button type="button" class="btn home-inputButton purple-button-sm content-center-col">+</button>
-        </div>
+            <button type="submit" class="btn home-inputButton purple-button-sm content-center-col">+</button>
+        </form>
     </div>
 </div>
 
@@ -50,7 +50,7 @@
                 정렬 기준
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">기본</a></li>
+                <li><a class="dropdown-item" href="#">생성 순</a></li>
                 <li><a class="dropdown-item" href="#">최근 수정한 순</a></li>
                 <li><a class="dropdown-item" href="#">이름 순</a></li>
                 <li><a class="dropdown-item" href="#">완료된 순</a></li>
@@ -58,17 +58,16 @@
         </div>
     </div>
     <div class="home-todo-list-container">
-        <div th:each="item : ${todoList}" class="home-todo-item">
+        <div th:each="item : ${todoList}" class="home-todo-item" th:id="'home-item-' + ${item.id}">
             <div class="home-checkbox form-check">
-                <input class="form-check-input checkbox-icon" type="checkbox" th:id="checkbox- + ${item.id}" th:checked="${item.completed}" autocomplete="off">
-                <input class="form-control home-todo-item-title" type="text" th:id="text- + ${item.id}" th:value="${item.content}" autocomplete="off">
+                <input type="checkbox" class="form-check-input checkbox-icon input-custom" th:checked="${item.completed}" th:onclick="|clickCheckbox(${item.id})|" autocomplete="off">
+                <input type="text" class="form-control home-todo-item-title input-custom" th:value="${item.content}" th:name="content" autocomplete="off">
             </div>
             <div class="home-icon-container">
-                <button type="button" class="home-icon" th:id="favorite-icon- + ${item.id}">
-                    <img th:if="${item.favorite}" th:src="@{/images/svg/star-fill.svg}" alt="fill-star" />
-                    <img th:if="!${item.favorite}" th:src="@{/images/svg/star.svg}" alt="star"/>
+                <button type="submit" class="home-icon" th:onclick="|toggleFavorite(${item.id})|">
+                    <img th:src="${item.favorite} ? '/images/svg/star-fill.svg' : '/images/svg/star.svg'" th:id="'favorite_' + ${item.id}" alt="star" />
                 </button>
-                <button type="button" class="home-icon" th:id="delete-icon- + ${item.id}">
+                <button type="submit" class="home-icon" th:onclick="|clearTodo(${item.id})|">
                     <img th:src="@{/images/svg/trash3.svg}" alt="trash"/>
                 </button>
             </div>
