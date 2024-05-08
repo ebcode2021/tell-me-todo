@@ -20,3 +20,11 @@ function getProgressPercentage() {
     document.querySelector('.home-progress-bar-detail').setAttribute('aria-valuenow', progressPercentage);
     document.querySelector('.home-progress-bar-detail').style.width = progressPercentage + '%';
 }
+
+const setZeroProgress = () => {
+    const progressPercentage = 0;
+
+    // document.querySelector('.home-progress-bar-detail').innerText = progressPercentage.toFixed(0) + '%';
+    document.querySelector('.home-progress-bar-detail').setAttribute('aria-valuenow', 0);
+    document.querySelector('.home-progress-bar-detail').style.width = 0 + '%';
+}
