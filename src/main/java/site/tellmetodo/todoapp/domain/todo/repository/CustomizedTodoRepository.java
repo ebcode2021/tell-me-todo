@@ -1,5 +1,6 @@
 package site.tellmetodo.todoapp.domain.todo.repository;
 
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
 import site.tellmetodo.todoapp.domain.todo.entity.Todo;
 
@@ -13,4 +14,7 @@ public interface CustomizedTodoRepository {
     void deleteTodoListByUserIdAndDate(Long id, LocalDate date);
 
     void reverseTodoFavorite(Long id);
+
+    void reverseTodoCompleted(Long id);
+
 }
