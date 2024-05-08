@@ -30,19 +30,36 @@ public class TodoController {
     }
 
     /**
+     * @brief Todo 삭제
+     */
+    @DeleteMapping("/{id}")
+    public void removeTodo(@PathVariable("id") Long id,
+                           HttpServletResponse response) {
+        todoService.removeTodo(id);
+    }
+
+    /**
      * @brief Todo 내용 수정
      */
     @PatchMapping("/{id}/favorite")
-    public String editTodoContent(@PathVariable("id") Long id) {
+    public void editTodoContent(@PathVariable("id") Long id,
+                                HttpServletResponse response) {
         todoService.editTodoFavorite(id);
-        System.out.println("여기!!!!!!!");
-        return "redirect:/";
+    }
+
+    /**
+     * @brief Todo 완료여부 수정
+     */
+    @PatchMapping("/{id}/completed")
+    public void editTodoCompleted(@PathVariable("id") Long id,
+                                    HttpServletResponse response) {
+        todoService.editTodoCompleted(id);
     }
 
     /**
      * @brief 특정 날짜의 Todo List 삭제
      */
-    @DeleteMapping("/{date}")
+    @DeleteMapping("/date/{date}")
     public void removeTodoListByDate(@AuthenticationPrincipal UserDetailsImpl userDetails,
                                      @PathVariable("date") @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate date,
                                      HttpServletResponse response) {
