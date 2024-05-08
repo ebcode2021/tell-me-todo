@@ -15,4 +15,8 @@ public interface TodoService {
     void addTodo(TodoCreateDto todoCreateDto);
 
     void editTodoFavorite(Long id);
+
+    void removeTodo(Long id);
+
+    void editTodoCompleted(Long id);
 }

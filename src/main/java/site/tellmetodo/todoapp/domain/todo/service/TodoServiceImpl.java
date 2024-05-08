@@ -13,13 +13,14 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
 @Transactional
 @RequiredArgsConstructor
 @Slf4j
-public class TodoServiceImpl implements TodoService{
+public class TodoServiceImpl implements TodoService {
 
     private final TodoRepository todoRepository;
 
@@ -46,4 +47,15 @@ public class TodoServiceImpl implements TodoService{
     public void editTodoFavorite(Long id) {
         todoRepository.reverseTodoFavorite(id);
     }
+
+    @Override
+    public void editTodoCompleted(Long id) {
+        todoRepository.reverseTodoCompleted(id);
+    }
+
+    @Override
+    public void removeTodo(Long id) {
+        todoRepository.deleteById(id);
+    }
+
 }
