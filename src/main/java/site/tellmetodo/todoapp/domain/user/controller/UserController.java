@@ -31,8 +31,12 @@ public class UserController {
     private final UserService userService;
     private final TodoService todoService;
 
+    /**
+     * @brief 로그인 후 접근 가능한 메인 페이지
+     */
     @GetMapping("/")
-    public String home(@AuthenticationPrincipal UserDetailsImpl userDetails, Model model) {
+    public String home(@AuthenticationPrincipal UserDetailsImpl userDetails,
+                       Model model) {
         Long id = userDetails.getUser().getId();
         LocalDate date = LocalDate.now();
 
@@ -42,22 +46,34 @@ public class UserController {
         return "user/home";
     }
 
+    /**
+     * @brief 로그인 페이지
+     */
     @GetMapping("/login")
     public String login() {
         return "user/login";
     }
 
+    /**
+     * @brief guest 페이지
+     */
     @GetMapping("/guest")
     public String guest() {
         return "user/guest-home";
     }
 
+    /**
+     * @brief 회원가입 페이지
+     */
     @GetMapping("/join")
     public String join(@ModelAttribute("userFormDto") UserFormDto userFormDto, Model model){
         model.addAttribute("userFormDto", userFormDto);
         return "user/join";
     }
 
+    /**
+     * @brief 새로운 유저 등록
+     */
     @PostMapping ("/users")
     public String addUser(@Valid @ModelAttribute UserFormDto userFormDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
@@ -69,20 +85,19 @@ public class UserController {
         return "redirect:/";
     }
 
+    /**
+     * @brief 닉네임 중복 체크
+     */
     @GetMapping("/users/exists/{username}")
     public ResponseEntity<Boolean> existUser(@PathVariable("username") String username) {
         return userService.isUsername(username) ? ResponseEntity.ok(true) : ResponseEntity.ok(false);
     }
 
+    /**
+     * @brief 마이 페이지 (개발중)
+     */
     @GetMapping("/myPage")
     public String myPage() {
         return "user/myPage";
     }
-
-
 }
-
-//    @GetMapping("/users/{userId}")
-//    public void getUser(@PathVariable String userId) {
-
-//    }
