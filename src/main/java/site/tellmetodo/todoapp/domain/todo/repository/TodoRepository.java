@@ -9,6 +9,6 @@ import site.tellmetodo.todoapp.domain.todo.entity.Todo;
 
 @Repository
 @Transactional
-public interface TodoRepository extends JpaRepository<Todo, Long>, QuerydslPredicateExecutor<Todo>, CustomizedTodoRepository {
+public interface TodoRepository extends JpaRepository<Todo, Long>, CustomizedTodoRepository {
 
 }
