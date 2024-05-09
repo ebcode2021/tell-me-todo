@@ -1,3 +1,5 @@
+// @Deprecated function
+
 const sendApiRequest = async (method, url, headers, body) => {
     try {
         const response = await fetch(url, {
