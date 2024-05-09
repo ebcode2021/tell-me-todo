@@ -15,6 +15,17 @@ const clearTodoList = async() => {
     setZeroProgress();
 }
 
+const clearTodo = async(id) => {
+    await deleteTodo(id);
+
+    const item = document.getElementById(`home-item-${id}`);
+    if (item) {
+        item.remove();
+    }
+    getProgressPercentage();
+}
+
+
 const clickCheckbox = async(id) => {
     await updateTodoCompleted(id);
     getProgressPercentage();
@@ -32,16 +43,6 @@ const toggleFavorite = async(id) => {
     }
 }
 
-const clearTodo = async(id) => {
-    await deleteTodo(id);
-
-    const item = document.getElementById(`home-item-${id}`);
-    if (item) {
-        item.remove();
-    }
-    getProgressPercentage();
-}
-
 /**
  * Validate Function
  */
@@ -54,14 +55,36 @@ const checkContentLength = () => {
 /**
  * Event Function
  */
+const handleInputContent = async(id, content) => {
+    const inputValue = document.querySelector(`[data-item-id="${id}"]`).value.trimEnd();
 
+    if (inputValue !== content) {
+        await updateTodoContent(id, inputValue);
+    }
+}
 
 
 /**
  * Event Detect Function
  */
-const eventListener = () => {
-    // document.getElementById("delete-item-button").addEventListener("click", clearTodoList);
+const inputContentChangeEvent = () => {
+    document.querySelectorAll('.home-todo-item-title').forEach(item => {
+        const id = item.getAttribute("data-item-id");
+        const content = item.value;
+        let timeoutId = null;
+
+        item.addEventListener("input", inputTimer);
+
+        function inputTimer() {
+            if (timeoutId) {
+                clearTimeout(timeoutId);
+            }
+
+            timeoutId = setTimeout(() => {
+                handleInputContent(id, content);
+            }, 2000);
+        }
+    })
 }
 
-eventListener()
+inputContentChangeEvent()
