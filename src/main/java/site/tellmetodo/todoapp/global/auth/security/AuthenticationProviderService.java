@@ -20,8 +20,6 @@ public class AuthenticationProviderService implements AuthenticationProvider {
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        // AuthenticationFilter 에서 생성된 토큰으로부터 아이디와 비밀번호를 조회함
-        System.out.println("authenticate 들어왔어!");
         UsernamePasswordAuthenticationToken token = (UsernamePasswordAuthenticationToken) authentication;
         String username = token.getName();
         String password = (String)token.getCredentials().toString();
