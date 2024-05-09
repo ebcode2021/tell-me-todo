@@ -1,5 +1,6 @@
 package site.tellmetodo.todoapp.domain.todo.service;
 
+import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -51,6 +52,11 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public void editTodoCompleted(Long id) {
         todoRepository.reverseTodoCompleted(id);
+    }
+
+    @Override
+    public void editTodoContent(Long id, String content) {
+        todoRepository.updateTodoContent(id, content);
     }
 
     @Override

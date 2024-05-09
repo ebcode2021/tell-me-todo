@@ -19,4 +19,6 @@ public interface TodoService {
     void removeTodo(Long id);
 
     void editTodoCompleted(Long id);
+
+    void editTodoContent(Long id, String content);
 }

@@ -57,6 +57,17 @@ public class TodoController {
     }
 
     /**
+     * @brief Todo 내용 수정
+     */
+    @PatchMapping("/{id}/content")
+    public void editTodoContent(@PathVariable("id") Long id,
+                                @RequestBody String content,
+                                HttpServletResponse response) {
+        System.out.println(content);
+        todoService.editTodoContent(id, content);
+    }
+
+    /**
      * @brief 특정 날짜의 Todo List 삭제
      */
     @DeleteMapping("/date/{date}")
@@ -68,9 +79,3 @@ public class TodoController {
     }
 
 }
-
-//    @GetMapping
-//    public String getTodoList(@AuthenticationPrincipal UserDetailsImpl userDetails) {
-//        System.out.println(userDetails.getUsername());
-//        return "";
-//    }

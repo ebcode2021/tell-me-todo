@@ -5,7 +5,6 @@ import com.querydsl.core.types.dsl.Expressions;
 import com.querydsl.core.types.dsl.StringExpression;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.querydsl.jpa.impl.JPAUpdateClause;
-import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +22,6 @@ import static site.tellmetodo.todoapp.domain.todo.entity.QTodo.todo;
 public class CustomizedTodoRepositoryImpl implements CustomizedTodoRepository {
 
     private final JPAQueryFactory jpaQueryFactory;
-    private final EntityManager entityManager;
 
     private StringExpression formatDate(DateTimePath<LocalDateTime> datePath) {
         return Expressions.stringTemplate("TO_CHAR({0}, 'YYYY-MM-DD')", datePath);
@@ -64,6 +62,15 @@ public class CustomizedTodoRepositoryImpl implements CustomizedTodoRepository {
                 .where(todo.id.eq(id));
         updateClause.set(todo.completed, todo.completed.not())
                 .execute();
+    }
+
+    @Override
+    public void updateTodoContent(Long id, String content) {
+        JPAUpdateClause updateClause = jpaQueryFactory.update(todo)
+                .where(todo.id.eq(id));
+        updateClause.set(todo.content, content)
+                .execute();
+
     }
 
 }
