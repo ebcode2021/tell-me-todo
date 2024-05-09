@@ -61,7 +61,7 @@
         <div th:each="item : ${todoList}" class="home-todo-item" th:id="'home-item-' + ${item.id}">
             <div class="home-checkbox form-check">
                 <input type="checkbox" class="form-check-input checkbox-icon input-custom" th:checked="${item.completed}" th:onclick="|clickCheckbox(${item.id})|" autocomplete="off">
-                <input type="text" class="form-control home-todo-item-title input-custom" th:value="${item.content}" th:name="content" autocomplete="off">
+                <input type="text" class="form-control home-todo-item-title input-custom" th:value="${item.content}" th:name="content" autocomplete="off" th:data-item-id="${item.id}">
             </div>
             <div class="home-icon-container">
                 <button type="submit" class="home-icon" th:onclick="|toggleFavorite(${item.id})|">
@@ -79,7 +79,6 @@
 <script th:src="@{/js/common/jquery-3.7.1.min.js}"></script>
 <script th:src="@{/js/common/bootstrap.bundle.min.js}"></script>
 <script th:src="@{/js/api/todo-api.js}"></script>
-<script th:src="@{/js/api/common/sendApiRequest.js}"></script>
 <script th:src="@{/js/user/home.js}"></script>
 <script th:src="@{/js/util/getCurrentDate.js}"></script>
 <script th:src="@{/js/util/getProgressPercentage.js}"></script>
