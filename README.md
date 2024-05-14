@@ -35,7 +35,7 @@
 
 🎨 [Visit Figma](https://www.figma.com/file/bSmQKmCxq6BoPg1evYlNtp/Tell-me-to-do?type=design&node-id=0-1&mode=design&t=e2aWO3ddeYylvPW0-0)
 
-<img width="912" alt="figma image" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7648c277-a035-4aaf-8869-3dced89e3d0c">
+<img width="912" alt="figma image" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/f37b0c62-a8f4-4f09-947d-3b9c89b6ace3">
 
 <br />
 
@@ -46,7 +46,7 @@
 <img width="1006" alt="erd" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/ff144cd0-cb3a-40f6-8e13-c1521f2aae52">
 
 <br />
-** 구현에 따라 지속적으로 변경이 일어나고 있습니다. 최근 ERD는 링크에서 확인 가능합니다.
+** 구현에 따라 지속적으로 변경이 일어나고 있습니다. 최신 ERD는 링크에서 확인 가능합니다.
 
 <br />
 
@@ -66,7 +66,8 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
 | 도메인   | URL               |
 | -------- | ----------------- |
 | 메인     | /                 |
-| 회원가입 | /signUp           |
+| 로그인   | /login            |
+| 회원가입 | /join             |
 | 프로필   | profile/:nickname |
 
 <br />
@@ -75,11 +76,9 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
 
 > REST API 설계 기본 원칙에 따라 설계하였습니다.
 
-<img width="844" alt="api" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/838de64e-e72b-4d61-b4fa-c1a4cff58de3">
+<img width="844" alt="api" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/5ecab711-2361-4d8c-bf73-4e6380b439d5">
 
 ## 5. 구현
-
-> Last Updated : 2024.04.17
 
 ### 5-1. 구현 포인트(구현 요구사항)
 
@@ -94,15 +93,21 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
 1. 비회원의 to do 기능 구현
 2. guest 로그인 기능으로 to do 관련 API 구현
 3. 로그인/회원가입
-4. 프로필 페이지
+4. 프로필 페이지 (현재 진행중)
+5. 다른 유저와 상호작용
 
-### 5-3. 현재 진행 사항
+### 5-3. 구현 기능
 
--   비회원의 to do 기능 구현 완료 \
-    -> localStorage를 사용해서 브라우저 창이 닫히거나 새로고침이 이루어져도 데이터 유지 \
-    -> to do item CRUD 가능
--   **(진행중)** guest 로그인 기능으로 to do 관련 API 구현 \
-    -> login 모달 생성
-    -> User Entity 생성, 서버 부팅시 guest 로그인
-    -> (진행중) guest login시 데이터 잘 들어오는가 -> join 구현 + 테스트코드 작성
-    -> (예정) guest login시 오늘 날짜의 todo의 items 받아올 수 있게 매핑 -> 렌더링 
+1. 로그인
+   <img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7d5314e0-be39-42d1-8cb7-779e835dfbf6">
+
+<br />
+
+2. 회원가입
+   <img width="1600" alt="회원가입" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/df16e571-e41e-4018-8e8d-3f32c9157adf">
+
+<br />
+
+3. 메인(로그인 / 게스트)
+   <img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/d71e5b85-b55d-4569-8c3f-c1148a2981b9">
+   <img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/9712f466-dcd8-40f8-bd8a-63cc9c19cc0d">
