@@ -98,16 +98,16 @@ global : 프로젝트 전방위적으로 사용할 수 있는 클래스들로 �
 
 ### 5-3. 구현 기능
 
-1. 로그인
-   <img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7d5314e0-be39-42d1-8cb7-779e835dfbf6">
+**1. 로그인**
+<img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/7d5314e0-be39-42d1-8cb7-779e835dfbf6">
 
 <br />
 
-2. 회원가입
-   <img width="1600" alt="회원가입" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/df16e571-e41e-4018-8e8d-3f32c9157adf">
+**2. 회원가입**
+<img width="1600" alt="회원가입" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/df16e571-e41e-4018-8e8d-3f32c9157adf">
 
 <br />
 
-3. 메인(로그인 / 게스트)
-   <img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/d71e5b85-b55d-4569-8c3f-c1148a2981b9">
-   <img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/9712f466-dcd8-40f8-bd8a-63cc9c19cc0d">
+**3. 메인(로그인 / 게스트)**
+<img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/d71e5b85-b55d-4569-8c3f-c1148a2981b9">
+<img width="1600" alt="메인 페이지" src="https://github.com/ebcode2021/tell-me-todo/assets/84271971/9712f466-dcd8-40f8-bd8a-63cc9c19cc0d">
