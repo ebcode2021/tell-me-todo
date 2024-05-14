@@ -1,6 +1,5 @@
 package site.tellmetodo.todoapp.domain.todo.service;
 
-import jakarta.persistence.EntityManager;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -11,10 +10,7 @@ import site.tellmetodo.todoapp.domain.todo.entity.Todo;
 import site.tellmetodo.todoapp.domain.todo.repository.TodoRepository;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
