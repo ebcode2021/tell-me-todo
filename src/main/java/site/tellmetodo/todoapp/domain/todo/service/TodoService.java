@@ -2,6 +2,7 @@ package site.tellmetodo.todoapp.domain.todo.service;
 
 import site.tellmetodo.todoapp.domain.todo.dto.TodoCreateDto;
 import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
+import site.tellmetodo.todoapp.domain.todo.entity.TodoSort;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,4 +22,6 @@ public interface TodoService {
     void editTodoCompleted(Long id);
 
     void editTodoContent(Long id, String content);
+
+    List<TodoListDto> getTodoListByUserIdAndLocalDateAndSort(Long id, LocalDate date, TodoSort sort);
 }

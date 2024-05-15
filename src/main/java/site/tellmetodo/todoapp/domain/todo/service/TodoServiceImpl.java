@@ -7,6 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import site.tellmetodo.todoapp.domain.todo.dto.TodoCreateDto;
 import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
 import site.tellmetodo.todoapp.domain.todo.entity.Todo;
+import site.tellmetodo.todoapp.domain.todo.entity.TodoSort;
 import site.tellmetodo.todoapp.domain.todo.repository.TodoRepository;
 
 import java.time.LocalDate;
@@ -22,8 +23,18 @@ public class TodoServiceImpl implements TodoService {
     private final TodoRepository todoRepository;
 
     @Override
-    public List<TodoListDto> getTodoListByUserIdAndLocalDate(Long id, LocalDate date) {
-        List<Todo> todoList = todoRepository.findTodoListByUserIdAndDate(id, date);
+    public List<TodoListDto> getTodoListByUserIdAndLocalDateAndSort(Long id, LocalDate date, TodoSort sort) {
+        List<Todo> todoList;
+
+        if (sort == TodoSort.RECENT) {
+            todoList = todoRepository.findTodoListByUserIdAndDateOrderByRecent(id, date);
+        } else if (sort == TodoSort.NAME) {
+            todoList = todoRepository.findTodoListByUserIdAndDateOrderByName(id, date);
+        } else if (sort == TodoSort.COMPLETED) {
+            todoList = todoRepository.findTodoListByUserIdAndDateOrderByCompleted(id, date);
+        } else {
+            todoList = todoRepository.findTodoListByUserIdAndDateOrderByCreated(id, date);
+        }
 
         return todoList.stream()
                 .map(TodoListDto::toDto)
@@ -55,9 +66,22 @@ public class TodoServiceImpl implements TodoService {
         todoRepository.updateTodoContent(id, content);
     }
 
+
     @Override
     public void removeTodo(Long id) {
         todoRepository.deleteById(id);
+    }
+
+    /**
+     * @deprecated
+     */
+    @Override
+    public List<TodoListDto> getTodoListByUserIdAndLocalDate(Long id, LocalDate date) {
+        List<Todo> todoList = todoRepository.findTodoListByUserIdAndDate(id, date);
+
+        return todoList.stream()
+                .map(TodoListDto::toDto)
+                .collect(Collectors.toList());
     }
 
 }

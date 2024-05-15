@@ -7,8 +7,6 @@ import java.util.List;
 
 public interface CustomizedTodoRepository {
 
-    List<Todo> findTodoListByUserIdAndDate(Long id, LocalDate date);
-
     void deleteTodoListByUserIdAndDate(Long id, LocalDate date);
 
     void reverseTodoFavorite(Long id);
@@ -17,4 +15,16 @@ public interface CustomizedTodoRepository {
 
     void updateTodoContent(Long id, String content);
 
+    List<Todo> findTodoListByUserIdAndDateOrderByCreated(Long id, LocalDate date);
+
+    List<Todo> findTodoListByUserIdAndDateOrderByRecent(Long id, LocalDate date);
+
+    List<Todo> findTodoListByUserIdAndDateOrderByName(Long id, LocalDate date);
+
+    List<Todo> findTodoListByUserIdAndDateOrderByCompleted(Long id, LocalDate date);
+
+    /**
+     * @deprecated
+     */
+    List<Todo> findTodoListByUserIdAndDate(Long id, LocalDate date);
 }

@@ -28,15 +28,38 @@ public class CustomizedTodoRepositoryImpl implements CustomizedTodoRepository {
     }
 
     @Override
-    public List<Todo> findTodoListByUserIdAndDate(Long id, LocalDate date) {
+    public List<Todo> findTodoListByUserIdAndDateOrderByRecent(Long id, LocalDate date) {
+        StringExpression formattedDate = formatDate(todo.created_at);
+
+        return jpaQueryFactory.selectFrom(todo)
+                .where(todo.user.id.eq(id)
+                .and(formattedDate.eq(date.toString())))
+                .orderBy(todo.updated_at.asc())
+                .fetch();
+    }
+
+    @Override
+    public List<Todo> findTodoListByUserIdAndDateOrderByName(Long id, LocalDate date) {
         StringExpression formattedDate = formatDate(todo.created_at);
 
         return jpaQueryFactory.selectFrom(todo)
                 .where(todo.user.id.eq(id)
                         .and(formattedDate.eq(date.toString())))
-                .orderBy(todo.created_at.asc())
+                .orderBy(todo.content.asc())
                 .fetch();
     }
+
+    @Override
+    public List<Todo> findTodoListByUserIdAndDateOrderByCompleted(Long id, LocalDate date) {
+        StringExpression formattedDate = formatDate(todo.created_at);
+
+        return jpaQueryFactory.selectFrom(todo)
+                .where(todo.user.id.eq(id)
+                        .and(formattedDate.eq(date.toString())))
+                .orderBy(todo.completed.desc(), todo.created_at.asc())
+                .fetch();
+    }
+
 
     @Override
     public void deleteTodoListByUserIdAndDate(Long id, LocalDate date) {
@@ -71,6 +94,31 @@ public class CustomizedTodoRepositoryImpl implements CustomizedTodoRepository {
         updateClause.set(todo.content, content)
                 .execute();
 
+    }
+
+    @Override
+    public List<Todo> findTodoListByUserIdAndDateOrderByCreated(Long id, LocalDate date) {
+        StringExpression formattedDate = formatDate(todo.created_at);
+
+        return jpaQueryFactory.selectFrom(todo)
+                .where(todo.user.id.eq(id)
+                        .and(formattedDate.eq(date.toString())))
+                .orderBy(todo.created_at.asc())
+                .fetch();
+    }
+
+    /**
+     * @deprecated
+     */
+    @Override
+    public List<Todo> findTodoListByUserIdAndDate(Long id, LocalDate date) {
+        StringExpression formattedDate = formatDate(todo.created_at);
+
+        return jpaQueryFactory.selectFrom(todo)
+                .where(todo.user.id.eq(id)
+                        .and(formattedDate.eq(date.toString())))
+                .orderBy(todo.created_at.asc())
+                .fetch();
     }
 
 }
