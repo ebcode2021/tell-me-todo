@@ -1,26 +1,23 @@
 package site.tellmetodo.todoapp.domain.user.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import site.tellmetodo.todoapp.domain.todo.dto.TodoListDto;
+import site.tellmetodo.todoapp.domain.todo.entity.TodoSort;
 import site.tellmetodo.todoapp.domain.todo.service.TodoService;
 import site.tellmetodo.todoapp.domain.user.dto.UserFormDto;
 import site.tellmetodo.todoapp.domain.user.service.UserService;
 import site.tellmetodo.todoapp.global.auth.security.UserDetailsImpl;
 
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,11 +33,12 @@ public class UserController {
      */
     @GetMapping("/")
     public String home(@AuthenticationPrincipal UserDetailsImpl userDetails,
+                       @RequestParam(required = false, name = "sort") TodoSort sort,
                        Model model) {
         Long id = userDetails.getUser().getId();
         LocalDate date = LocalDate.now();
 
-        List<TodoListDto> todoList = todoService.getTodoListByUserIdAndLocalDate(id, date);
+        List<TodoListDto> todoList = todoService.getTodoListByUserIdAndLocalDateAndSort(id, date, sort);
         model.addAttribute("todoList", todoList);
 
         return "user/home";

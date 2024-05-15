@@ -50,10 +50,10 @@
                 정렬 기준
             </button>
             <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">생성 순</a></li>
-                <li><a class="dropdown-item" href="#">최근 수정한 순</a></li>
-                <li><a class="dropdown-item" href="#">이름 순</a></li>
-                <li><a class="dropdown-item" href="#">완료된 순</a></li>
+                <li><a th:href="@{/}" class="dropdown-item">생성 순</a></li>
+                <li><a th:href="@{/(sort=RECENT)}" class="dropdown-item">최근 수정한 순</a></li>
+                <li><a th:href="@{/(sort=NAME)}" class="dropdown-item">이름 순</a></li>
+                <li><a th:href="@{/(sort=COMPLETED)}" class="dropdown-item">완료된 순</a></li>
             </ul>
         </div>
     </div>
